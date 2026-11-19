@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>東京賞楓・美食・購物 4D3N｜2026/12/3–12/6</title>
+<style>
+:root{
+  --bg:#f5efe5;--paper:#fffaf3;--ink:#342d2a;--muted:#7b6e65;
+  --wine:#8b3a2f;--wine2:#b25b47;--gold:#c99b58;--green:#5f715f;
+  --line:#e7d7c2;--soft:#f1e4d3;--blue:#4e6b79;--shadow:0 14px 38px rgba(82,57,37,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(circle at 10% 0%,#fff8eb 0,transparent 30%),
+ linear-gradient(180deg,#efe4d5 0,#f9f5ef 20%,#f5efe5 100%);
+ color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.65}
+a{color:inherit}
+.wrap{max-width:1040px;margin:auto;padding:26px 18px 80px}
+.hero{background:linear-gradient(135deg,#fffaf2 0,#f8ead8 60%,#efd5bd 100%);
+ border:1px solid #e5ceb4;border-radius:30px;padding:34px 32px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"楓";position:absolute;right:-12px;top:-58px;font-family:serif;font-size:190px;color:rgba(139,58,47,.07)}
+.kicker{letter-spacing:.18em;font-weight:800;color:var(--wine);font-size:.78rem}
+h1{font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;margin:10px 0 14px}
+.sub{max-width:720px;color:var(--muted);font-size:1.03rem}
+.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.stat{background:rgba(255,255,255,.62);border:1px solid rgba(139,58,47,.12);padding:14px 16px;border-radius:18px}
+.stat b{display:block;color:var(--wine);font-size:.86rem}.stat span{font-size:.96rem}
+.tabs{position:sticky;top:0;z-index:20;display:flex;gap:8px;overflow:auto;padding:12px 4px;margin:18px 0;background:rgba(245,239,229,.92);backdrop-filter:blur(12px)}
+.tab{border:1px solid var(--line);background:#fffaf3;padding:10px 15px;border-radius:999px;white-space:nowrap;font-weight:800;color:#705d51;cursor:pointer}
+.tab.active{background:var(--wine);color:white;border-color:var(--wine)}
+.panel{display:none}.panel.active{display:block}
+.dayhead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:26px 2px 18px}
+.dayhead h2{margin:0;font-family:Georgia,"Noto Serif TC",serif;font-size:2rem}
+.dayhead .theme{color:var(--wine);font-weight:800}
+.banner{background:#4d3d35;color:white;border-radius:22px;padding:18px 20px;margin:12px 0 20px}
+.banner strong{color:#ffd9ad}.banner small{display:block;color:#e7d9cd;margin-top:4px}
+.timeline{position:relative;margin-left:10px}
+.timeline:before{content:"";position:absolute;left:16px;top:4px;bottom:4px;width:2px;background:linear-gradient(var(--gold),var(--wine))}
+.stop{position:relative;padding-left:48px;margin:0 0 20px}
+.stop:before{content:"";position:absolute;left:8px;top:24px;width:17px;height:17px;border:4px solid var(--paper);background:var(--wine);border-radius:50%;box-shadow:0 0 0 2px var(--wine)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 8px 24px rgba(77,57,39,.06)}
+.time{color:var(--wine);font-weight:900;font-size:.82rem;letter-spacing:.08em}
+.card h3{margin:4px 0 5px;font-size:1.25rem}.desc{color:#675b54;margin:5px 0 12px}
+.meta{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.chip{font-size:.78rem;background:#f0e2d0;color:#6c5545;border-radius:999px;padding:5px 9px;font-weight:750}
+.chip.green{background:#e2ebdf;color:#476047}.chip.blue{background:#e2ebef;color:#416273}.chip.red{background:#f3deda;color:#8b3a2f}
+.route{margin-top:13px;padding:12px 14px;border-left:4px solid var(--gold);background:#f8f0e5;border-radius:11px;color:#5c5049}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;padding:8px 11px;border-radius:11px;background:white;border:1px solid #dfcbb4;font-weight:800;font-size:.83rem}
+.btn.primary{background:var(--wine);color:white;border-color:var(--wine)}
+.btn:hover{transform:translateY(-1px)}
+.note{padding:13px 15px;border-radius:14px;background:#fff1d8;border:1px solid #e7c993;margin-top:12px}
+.warning{background:#f8e3df;border-color:#e4b9af}
+.good{background:#e8efe5;border-color:#bfceb8}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.section{margin:30px 0}.section h3{font-size:1.25rem;margin-bottom:10px}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:var(--paper)}
+table{width:100%;border-collapse:collapse;min-width:680px}th,td{padding:12px 13px;border-bottom:1px solid #ecdfcf;text-align:left;vertical-align:top}
+th{background:#f0e3d1;color:#6a5141;font-size:.83rem}
+details{background:var(--paper);border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:0 15px}
+summary{cursor:pointer;padding:14px 2px;font-weight:900;color:#654b3c}
+details>div{padding:0 2px 15px;color:#62564f}
+.checklist label{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed #e2d6c7}
+.checklist input{width:19px;height:19px;accent-color:var(--wine)}
+.small{font-size:.86rem;color:var(--muted)}
+.footer{margin-top:34px;padding:20px;border-top:1px solid var(--line);font-size:.83rem;color:var(--muted)}
+.progress{height:8px;background:#eadcc9;border-radius:999px;overflow:hidden;margin-top:12px}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--wine));width:0}
+.score{font-size:.75rem;font-weight:900;color:var(--wine)}
+@media(max-width:760px){
+ .wrap{padding:12px 11px 60px}.hero{padding:25px 20px;border-radius:23px}.hero-grid,.grid2,.grid3{grid-template-columns:1fr}
+ .dayhead{display:block}.dayhead h2{font-size:1.65rem}.timeline{margin-left:2px}.stop{padding-left:40px}.timeline:before{left:12px}.stop:before{left:4px}
+ .card{padding:17px}.tabs{margin-left:-4px;margin-right:-4px}.stat{padding:11px 13px}
+}
+@media print{.tabs{display:none}.panel{display:block!important;page-break-before:always}.hero{box-shadow:none}.card{box-shadow:none}}
+
+/* v9 mobile sharing polish */
+.place-tag{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:850;letter-spacing:.02em;color:var(--wine);background:#f8eadb;border:1px solid #ead2ba;border-radius:999px;padding:4px 8px;margin-bottom:5px}
+@media(max-width:760px){
+  body{font-size:15px;line-height:1.62}
+  .wrap{padding:8px 9px calc(78px + env(safe-area-inset-bottom))}
+  .hero{padding:20px 17px 18px;border-radius:20px}
+  .hero:after{font-size:125px;right:-8px;top:-30px}
+  h1{font-size:2rem;line-height:1.08;margin:8px 0 10px}
+  .sub{font-size:.92rem;line-height:1.55}
+  .hero-grid{grid-template-columns:1fr;gap:7px;margin-top:16px}
+  .stat{padding:9px 12px;border-radius:14px}
+  .tabs{
+    position:sticky;top:0;z-index:50;margin:10px -9px 14px;padding:9px 10px;
+    gap:6px;background:rgba(245,239,229,.96);
+    border-bottom:1px solid rgba(139,58,47,.08);
+    scrollbar-width:none
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{padding:9px 13px;font-size:.84rem;box-shadow:0 2px 8px rgba(82,57,37,.05)}
+  .dayhead{margin:19px 2px 12px}
+  .dayhead h2{font-size:1.42rem;line-height:1.25;margin-top:3px}
+  .dayhead .theme{font-size:.82rem}
+  .score{display:inline-flex;margin-top:7px;background:#f5e2d8;padding:4px 8px;border-radius:999px}
+  .banner{padding:14px 15px;border-radius:16px;font-size:.91rem;margin:10px 0 14px}
+  .timeline{margin-left:0}
+  .timeline:before{left:9px}
+  .stop{padding-left:31px;margin-bottom:13px}
+  .stop:before{left:1px;top:20px;width:15px;height:15px;border-width:3px}
+  .card{padding:15px 14px;border-radius:17px;box-shadow:0 5px 16px rgba(77,57,39,.055)}
+  .card h3{font-size:1.08rem;line-height:1.35;margin:3px 0 6px}
+  .time{font-size:.75rem;letter-spacing:.04em}
+  .desc{font-size:.91rem;margin:5px 0 9px}
+  .route,.note{font-size:.88rem;padding:10px 11px;margin-top:9px}
+  .actions{display:grid;grid-template-columns:1fr;gap:7px;margin-top:10px}
+  .btn{width:100%;justify-content:center;padding:10px 11px;font-size:.86rem;border-radius:12px}
+  .meta{gap:5px;margin:7px 0}
+  .chip{font-size:.71rem;padding:4px 7px}
+  .section{margin:21px 0}
+  .section h3{font-size:1.08rem;margin:0 0 8px}
+  details{border-radius:14px;margin:8px 0;padding:0 11px}
+  summary{padding:12px 1px}
+  .tablewrap{overflow:visible;border:0;background:transparent}
+  table{min-width:0;border-collapse:separate;border-spacing:0 9px}
+  table thead{display:none}
+  table,tbody,tr,td{display:block;width:100%}
+  table tr{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:9px 11px;box-shadow:0 4px 13px rgba(77,57,39,.045)}
+  table td{padding:5px 2px;border:0;font-size:.88rem}
+  table td:before{content:attr(data-label);display:block;font-size:.7rem;font-weight:900;color:var(--wine);letter-spacing:.04em;margin-bottom:1px}
+  .checklist label{font-size:.9rem;padding:9px 0}
+  .footer{padding:16px 5px 8px;margin-top:22px;font-size:.78rem}
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<div class="kicker">TOKYO · AUTUMN / EARLY WINTER · 4 DAYS 3 NIGHTS</div>
+<h1>東京賞楓・美食・購物小旅行</h1>
+<div class="sub">2026/12/3（四）– 12/6（日）｜東京灣喜來登大飯店。把豐洲、台場、SHIBUYA SKY、東京經典賞楓、Maxell Aqua Park Shinagawa、原宿與東京站排成順路版本，並保留藥妝、服飾、3COINS、DAISO 的採買時間。</div>
+<div class="hero-grid">
+<div class="stat"><b>去程</b><span>MM620｜12/3 02:25 TPE T1 → 06:30 NRT T1</span></div>
+<div class="stat"><b>住宿</b><span>Sheraton Grande Tokyo Bay Hotel｜3 晚</span></div>
+<div class="stat"><b>回程</b><span>MM627｜12/6 22:05 NRT T1 → 12/7 01:25 TPE T1</span></div>
+</div>
+</section>
+<nav class="tabs" id="tabs">
+<button class="tab active" data-tab="d1">Day 1</button>
+<button class="tab" data-tab="d2">Day 2</button>
+<button class="tab" data-tab="d3">Day 3</button>
+<button class="tab" data-tab="d4">Day 4</button>
+<button class="tab" data-tab="prep">行前提醒</button>
+</nav>
+<main>
+<section class="panel active" id="d1">
+<div class="dayhead"><div><div class="theme">12/3（四）｜抵達日・豐洲・澀谷夜景</div><h2>成田 → 喜來登 → 大和壽司 → 千客萬來／萬葉俱樂部 → SHIBUYA SKY → 利久牛舌</h2></div><span class="score">SHIBUYA SKY 18:00 已購票</span></div>
+<div class="card"><div class="time">🌤 天氣｜暫估</div><p class="desc">東京 12 月上旬常態約白天 11–14°C、早晚 4–7°C。出發前 7 天再用 JMA 更新逐日降雨。</p><div class="actions"><a class="btn" href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&amp;area_code=130000" target="_blank">JMA 東京預報</a></div></div>
+<div class="timeline">
+<div class="stop"><div class="card"><div class="time">06:30–07:45</div><h3>成田 T1 抵達・入境・領行李</h3><p class="desc">抓 60–75 分鐘，目標搭 08:00 機場巴士。</p></div></div>
+<div class="stop"><div class="card"><div class="time">08:00–09:21</div><h3>成田 T1 → 東京灣喜來登</h3><p class="desc"><b>建議：</b>機場巴士直達飯店，約 81 分鐘；錯過 08:00 則改搭 09:00 班。</p><div class="actions"><a class="btn primary" href="https://www.keiseibus.co.jp/en/express-bus/90102-2/" target="_blank">巴士時刻</a><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Narita+International+Airport+Terminal+1&amp;destination=Sheraton+Grande+Tokyo+Bay+Hotel&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">09:21–09:40</div><h3>喜來登寄行李</h3></div></div>
+<div class="stop"><div class="card"><div class="time">09:40–10:20</div><h3>喜來登 → 豐洲市場</h3><p class="desc"><b>建議：</b>Taxi；約 30–40 分鐘。公共運輸約 50–65 分鐘，不建議抵達日使用。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Sheraton+Grande+Tokyo+Bay+Hotel&amp;destination=Daiwa+Sushi+Toyosu&amp;travelmode=driving" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">10:20–11:20</div><span class="place-tag">美食</span><h3>🍣 大和壽司</h3><p class="desc">豐洲市場代表性壽司名店，以市場直送海鮮、握壽司節奏快又新鮮聞名。<br/>放回 Day 1，因 SHIBUYA SKY 已是 18:00。建議現場候位，不綁 10:00 預約；若排隊過長就改千客萬來海鮮。</p><div class="actions"><a class="btn" href="https://www.tablecheck.com/zh-TW/shops/daiwazushi/reserve" target="_blank">TableCheck 規則</a><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Sheraton+Grande+Tokyo+Bay+Hotel&amp;destination=Daiwa+Sushi+Toyosu&amp;travelmode=driving" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">11:20–11:35</div><span class="place-tag">美食</span><h3>大和壽司 → 千客萬來／萬葉俱樂部</h3><p class="desc">步行約 8–15 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Daiwa+Sushi+Toyosu&amp;destination=Tokyo+Toyosu+Manyo+Club&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">11:35–15:30</div><span class="place-tag">景點</span><h3>豐洲千客萬來＋萬葉俱樂部</h3><p class="desc">千客萬來是江戶風商業街，萬葉俱樂部則是可泡湯、休息與看東京灣景色的溫泉設施；抵達日安排很舒服。<br/>泡湯 60–90 分鐘，其餘留給休息與散步。</p></div></div>
+<div class="stop"><div class="card"><div class="time">15:30–17:10</div><h3>豐洲 → 澀谷</h3><p class="desc"><b>建議：</b>有樂町線豐洲→永田町，轉半藏門線→澀谷。車程約 35–45 分鐘；含步行抓 55–70 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Tokyo+Toyosu+Manyo+Club&amp;destination=SHIBUYA+SKY&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">18:00–19:30</div><span class="place-tag">夜景</span><h3>🌃 SHIBUYA SKY</h3><p class="desc">位於澀谷 Scramble Square 頂樓，是東京人氣最高的露天高空展望台之一，強項是開放感與完整城市夜景。<br/><b>Klook 2 張已購票，固定 18:00。</b>12 月初此時已是夜景，不再以夕陽為主。</p><div class="meta"><span class="chip green">已購票</span><span class="chip red">帶護照正本</span></div><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Shibuya+Station&amp;destination=SHIBUYA+SKY&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">19:30–19:40</div><span class="place-tag">夜景</span><h3>SHIBUYA SKY → 利久牛舌 Hikarie</h3><p class="desc">步行約 5–10 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=SHIBUYA+SKY&amp;destination=Rikyu+Shibuya+Hikarie&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">19:45–21:00</div><span class="place-tag">美食</span><h3>晚餐｜利久牛舌・渋谷ヒカリエ店</h3><p class="desc">仙台名物牛舌專門店，厚切牛舌以炭火快速燒烤，口感有彈性又帶炭香；就在 Hikarie 6F，動線最省力。</p></div></div>
+<div class="stop"><div class="card"><div class="time">21:00–22:10</div><h3>澀谷 → 喜來登</h3><p class="desc">JR→東京站→京葉線舞濱→Resort Line／接駁，約 60–75 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Shibuya+Hikarie&amp;destination=Sheraton+Grande+Tokyo+Bay+Hotel&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+</div>
+</section>
+<section class="panel" id="d2">
+<div class="dayhead"><div><div class="theme">12/4（五）｜東京經典賞楓主日</div><h2>小石川後樂園・宇奈とと・舊古河庭園・六義園夜楓</h2></div><span class="score">六義園 18:00–19:30 已購票</span></div>
+<div class="card"><div class="time">🌤 天氣｜暫估</div><p class="desc">白天約 11–14°C、早晚約 4–7°C。長時間戶外，建議圍巾、薄手套、好走鞋。</p><div class="actions"><a class="btn" href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&amp;area_code=130000" target="_blank">JMA 東京預報</a></div></div>
+<div class="timeline">
+<div class="stop"><div class="card"><div class="time">07:45–09:00</div><span class="place-tag">賞楓</span><h3>喜來登 → 小石川後樂園</h3><p class="desc">舞濱→JR京葉線東京→飯田橋。約 65–75 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Sheraton+Grande+Tokyo+Bay+Hotel&amp;destination=Koishikawa+Korakuen+Gardens&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">09:00–10:40</div><span class="place-tag">賞楓</span><h3>🍁 小石川後樂園</h3><p class="desc">江戶時代水戶德川家的代表大名庭園，以池泉、通天橋與「深山紅葉」最有名；12 月初仍是東京市區賞楓經典。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Iidabashi+Station&amp;destination=Koishikawa+Korakuen+Gardens&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">10:40–11:20</div><span class="place-tag">賞楓</span><h3>小石川後樂園 → 宇奈とと 上野店</h3><p class="desc">JR／地鐵約 30–40 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Koishikawa+Korakuen+Gardens&amp;destination=Unatoto+Ueno&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">11:20–12:05</div><span class="place-tag">美食</span><h3>午餐｜名代 宇奈とと 上野店</h3><p class="desc">平價炭火鰻魚丼專門店，出餐快、炭香明顯，適合賞楓日中途快速補充體力。</p></div></div>
+<div class="stop"><div class="card"><div class="time">12:05–12:40</div><span class="place-tag">賞楓</span><h3>上野 → 舊古河庭園</h3><p class="desc">JR 京濱東北線上野→上中里，再步行 7–10 分鐘。全程約 30–35 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Unatoto+Ueno&amp;destination=Kyu-Furukawa+Gardens&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">12:40–14:00</div><span class="place-tag">賞楓</span><h3>🍁 舊古河庭園</h3><p class="desc">少見把西洋館、玫瑰式洋庭園與日本庭園結合在同一園區的名園；秋末楓色搭配洋館很有特色。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Kami-Nakazato+Station&amp;destination=Kyu-Furukawa+Gardens&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">14:00–14:25</div><span class="place-tag">賞楓</span><h3>舊古河庭園 → 六義園</h3><p class="desc">Taxi 約 5–10 分鐘；步行約 20–25 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Kyu-Furukawa+Gardens&amp;destination=Rikugien+Gardens&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">14:30–16:45</div><span class="place-tag">賞楓</span><h3>🍁 六義園｜白天紅葉</h3><p class="desc">東京最具代表性的回遊式大名庭園之一，池畔、渡月橋與杜鵑茶屋周邊是經典紅葉視角。</p></div></div>
+<div class="stop"><div class="card"><div class="time">16:45–17:45</div><h3>駒込站周邊早晚餐／休息</h3><p class="desc">六義園 17:00 清園、18:00 夜間場重新開放，這一小時就近吃簡單定食或咖啡，不跑遠。</p></div></div>
+<div class="stop"><div class="card"><div class="time">18:00–19:30</div><span class="place-tag">夜楓</span><h3>🌙 六義園夜間特別觀賞</h3><p class="desc">紅葉、池水倒影、竹林與夜間燈光是這趟賞楓高潮。<br/><b>官網已購票，固定 18:00–19:30。</b></p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Komagome+Station&amp;destination=Rikugien+Gardens&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">19:30–20:45</div><h3>六義園 → 喜來登</h3><p class="desc">駒込→JR山手線東京→JR京葉線舞濱→Resort Line／接駁，約 65–80 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Rikugien+Gardens&amp;destination=Sheraton+Grande+Tokyo+Bay+Hotel&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+</div>
+</section>
+<section class="panel" id="d3">
+<div class="dayhead"><div><div class="theme">12/5（六）｜皇居・採買・煙火・六本木</div><h2>皇居東御苑 → 東京站／銀座 → 說明會 → 台場煙火 → THE MOON</h2></div><span class="score">THE MOON 20:00</span></div>
+<div class="card"><div class="time">🌤 天氣｜暫估</div><p class="desc">白天約 11–14°C、夜間約 5–8°C。台場海邊風大，建議防風外套＋圍巾。</p><div class="actions"><a class="btn" href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&amp;area_code=130000" target="_blank">JMA 東京預報</a></div></div>
+<div class="banner"><strong>THE MOON 20:00 仍可保留，但煙火後必須直奔六本木。</strong> 19:05 看完煙火立刻 Taxi，六本木燈飾改成「若來得及再看」，不能放在晚餐前當固定行程。</div>
+<div class="timeline">
+<div class="stop"><div class="card"><div class="time">08:00–09:05</div><span class="place-tag">景點</span><h3>喜來登 → 皇居東御苑</h3><p class="desc">舞濱→JR京葉線東京→大手町／步行，約 60–70 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Sheraton+Grande+Tokyo+Bay+Hotel&amp;destination=Imperial+Palace+East+Gardens&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">09:05–10:30</div><span class="place-tag">景點</span><h3>🍁 皇居東御苑</h3><p class="desc">位於舊江戶城本丸、二之丸一帶，可免費看石垣、庭園與皇居內苑秋色，是東京歷史與自然兼具的散步點。</p></div></div>
+<div class="stop"><div class="card"><div class="time">10:30–10:50</div><span class="place-tag">景點</span><h3>皇居東御苑 → 東京站一番街</h3><p class="desc">步行約 15–20 分鐘；想省腳力可 Taxi。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Imperial+Palace+East+Gardens&amp;destination=First+Avenue+Tokyo+Station&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">10:50–11:50</div><span class="place-tag">購物</span><h3>東京站一番街</h3><p class="desc">東京站地下的人氣購物區，Character Street、Tokyo Okashi Land 很適合買角色商品與東京限定伴手禮。</p></div></div>
+<div class="stop"><div class="card"><div class="time">11:50–12:05</div><h3>東京站 → 銀座</h3><p class="desc">丸之內線約 3 分鐘；含步行抓 15 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=First+Avenue+Tokyo+Station&amp;destination=Marronnier+Gate+Ginza+2&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">12:05–13:20</div><h3>銀座｜DAISO＋Standard Products＋藥妝</h3><p class="desc">把日用品、生活雜貨與藥妝集中一次買齊，避免最後一天再繞回銀座。</p></div></div>
+<div class="stop"><div class="card"><div class="time">13:20–14:35</div><h3>銀座 → 喜來登</h3><p class="desc">約 60–75 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Marronnier+Gate+Ginza+2&amp;destination=Sheraton+Grande+Tokyo+Bay+Hotel&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">15:30–18:00</div><h3>飯店說明會</h3><p class="desc">15:30–18:00 固定行程，前後都保留交通緩衝，不再插入其他景點。</p></div></div>
+<div class="stop"><div class="card"><div class="time">18:00–18:45</div><h3>喜來登 → 台場海濱公園</h3><p class="desc"><b>建議 Taxi</b>，約 30–45 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Sheraton+Grande+Tokyo+Bay+Hotel&amp;destination=Odaiba+Marine+Park&amp;travelmode=driving" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">19:00–19:05</div><span class="place-tag">季節限定</span><h3>🎆 台場彩虹煙火</h3><p class="desc">冬季限定煙火，12/5 19:00 起約 5 分鐘，從自由女神像外海施放；短但非常有季節感。</p></div></div>
+<div class="stop"><div class="card"><div class="time">19:05–19:50</div><h3>台場 → 六本木 Hills</h3><p class="desc">直接 Taxi。正常約 20–30 分鐘，週六塞車抓 35–45 分鐘；煙火前先叫車。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Odaiba+Marine+Park&amp;destination=Roppongi+Hills+Mori+Tower&amp;travelmode=driving" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">20:00–22:00</div><span class="place-tag">美食・夜景</span><h3>🌙 THE MOON｜52F 夜景晚餐</h3><p class="desc">位於六本木 Hills 森大樓 52F，以高空東京夜景與法式料理為特色，適合把煙火夜收在較有儀式感的晚餐。<br/><b>固定 20:00。</b> 若 19:50 才到就直接報到，不先看燈飾。</p><div class="actions"><a class="btn primary" href="https://www.tablecheck.com/en/shops/themoon/reserve" target="_blank">TableCheck</a><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Odaiba+Marine+Park&amp;destination=Roppongi+Hills+Mori+Tower&amp;travelmode=driving" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">22:00 後</div><h3>六本木燈飾｜視實際離席時間</h3><p class="desc">けやき坂點燈至 22:00，因此若晚餐到 22:00，基本上只能視現場提早離席與交通狀況決定；不要把它當保證行程。</p></div></div>
+</div>
+</section>
+<section class="panel" id="d4">
+<div class="dayhead"><div><div class="theme">12/6（日）｜汐留・原宿・Maxell Aqua Park・成田</div><h2>日テレ大時計 → 原宿採買 → Red Rock → 17:30 海豚秀 → 成田</h2></div><span class="score">回程 22:05</span></div>
+<div class="card"><div class="time">🌤 天氣｜暫估</div><p class="desc">白天約 11–14°C、晚間約 4–7°C；室內較多，但去機場時仍需保暖。</p><div class="actions"><a class="btn" href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&amp;area_code=130000" target="_blank">JMA 東京預報</a></div></div>
+<div class="timeline">
+<div class="stop"><div class="card"><div class="time">08:00–08:30</div><h3>早餐・退房・LuggAgent 交行李</h3></div></div>
+<div class="stop"><div class="card"><div class="time">08:30–09:45</div><h3>喜來登 → 汐留・日本電視台</h3><p class="desc">舞濱→JR京葉線東京→新橋／汐留，約 60–75 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Sheraton+Grande+Tokyo+Bay+Hotel&amp;destination=Nippon+Television+Shiodome&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">09:57–10:05</div><span class="place-tag">景點</span><h3>🕰️ 日テレ大時計</h3><p class="desc">宮崎駿設計的巨大機械時鐘，造型像奇幻工房；週末 10:00 場約提前 3 分鐘開始機械演出。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Shimbashi+Station&amp;destination=Nippon+Television+Shiodome&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">10:05–10:45</div><h3>汐留 → 原宿</h3><p class="desc">新橋→JR山手線原宿，約 25 分鐘；含步行抓 35–40 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Nippon+Television+Shiodome&amp;destination=Harajuku+Station&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">10:45–12:10</div><span class="place-tag">購物</span><h3>原宿・表參道服飾採買</h3><p class="desc">以日本服飾與選物為主，不重複明治神宮等舊景點；適合補 UNIQLO、BEAMS、United Arrows 等品牌。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Harajuku+Station&amp;destination=Omotesando+Tokyo&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">12:10–13:05</div><span class="place-tag">美食</span><h3>午餐｜Red Rock 原宿</h3><p class="desc">以 Roast Beef Bowl 爆紅的肉料理店，薄切烤牛肉堆疊成山，適合當原宿逛街中途的快速午餐。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Harajuku+Station&amp;destination=Red+Rock+Harajuku&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">13:05–14:20</div><h3>原宿最後採買／咖啡</h3></div></div>
+<div class="stop"><div class="card"><div class="time">14:20–15:00</div><span class="place-tag">景點</span><h3>原宿 → Maxell Aqua Park Shinagawa</h3><p class="desc">JR山手線到品川，高輪口步行 2–5 分鐘；約 30–40 分鐘。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Harajuku+Station&amp;destination=Maxell+Aqua+Park+Shinagawa&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">15:00–17:45</div><span class="place-tag">景點</span><h3>🐬 Maxell Aqua Park Shinagawa</h3><p class="desc">品川站旁的都會型水族娛樂設施，結合水族展示、燈光、音樂與數位投影；Christmas 夜間海豚秀是最大亮點。<br/>17:30 夜間海豚秀，約 15 分鐘；結束就離場。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Shinagawa+Station&amp;destination=Maxell+Aqua+Park+Shinagawa&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">17:45–18:20</div><h3>Aqua Park → 品川站</h3><p class="desc">預留找月台、洗手間、取票。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Maxell+Aqua+Park+Shinagawa&amp;destination=Shinagawa+Station&amp;travelmode=walking" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">18:24–19:36</div><h3>N’EX 品川 → 成田 T1</h3><p class="desc">目標搭 18:24 左右班次。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Shinagawa+Station&amp;destination=Narita+International+Airport+Terminal+1&amp;travelmode=transit" target="_blank">Google Maps</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">19:36–21:15</div><h3>成田 T1｜領行李・退稅・JCB Lounge・報到</h3></div></div>
+</div>
+</section>
+<section class="panel" id="prep">
+<div class="dayhead"><div><div class="theme">PRE-TRIP</div><h2>行前提醒・交通・預約・退稅</h2></div><span class="score">最後更新：2026/11/19</span></div>
+<section class="section">
+<h3>天氣更新規則</h3>
+<div class="card"><p class="desc">現在距旅行約兩週，JMA 可看兩週溫度趨勢，但逐日降雨仍不宜寫死。網頁先放東京 12 月上旬常態；出發前 7 天、3 天、前一晚再更新。</p><div class="actions"><a class="btn primary" href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&amp;area_code=130000" target="_blank">JMA 東京天氣</a></div></div>
+</section>
+<section class="section">
+<h3>① 交通付款方式</h3>
+<div class="card"><p class="desc"><b>直接使用 Suica / PASMO 等交通 IC 卡。</b> 本趟混用 JR、地鐵、百合海鷗線與 Taxi，無需另外研究 24／48／72 小時地鐵票券。</p></div>
+</section>
+<section class="section">
+<h3>② 必須預約時間表</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>項目</th><th>何時訂</th><th>目前建議</th><th>連結</th></tr></thead>
+<tbody>
+<tr><td data-label="項目">SHIBUYA SKY 12/3 18:00（Klook 2 張已購票）</td><td data-label="何時訂">官網約開放 2 週內</td><td data-label="目前建議"><b>已購票；固定 18:00 入場</b></td><td data-label="連結"><a href="https://www.shibuya-scramble-square.com/sky/ticket/" target="_blank">官方</a></td></tr>
+<tr><td data-label="項目">六義園 12/4 18:00–19:30 夜間票</td><td data-label="何時訂">2026 官方活動已公布</td><td data-label="目前建議"><b>已於官網購買完成</b></td><td data-label="連結"><a href="https://www.tokyo-park.or.jp/special/rikugien_lighting/index.html" target="_blank">官方</a></td></tr>
+<tr><td data-label="項目">大和壽司 Day 1</td><td data-label="何時訂">不綁死預約</td><td data-label="目前建議"><b>搭到 08:00 機場巴士則約 10:20 現場候位；延誤就啟用備案</b></td><td data-label="連結"><a href="https://www.tablecheck.com/zh-TW/shops/daiwazushi/reserve" target="_blank">規則</a></td></tr>
+<tr><td data-label="項目">利久牛舌・渋谷ヒカリエ店</td><td data-label="何時訂">店家可預約</td><td data-label="目前建議"><b>Day 1 SHIBUYA SKY 後直接步行前往</b></td><td data-label="連結"><a href="https://www.hikarie.jp/shop/detail/?scd=000083" target="_blank">官方</a></td></tr>
+<tr><td data-label="項目">THE MOON 12/5 20:00</td><td data-label="何時訂">週末晚餐通常約 1 個月前開放</td><td data-label="目前建議"><b>固定 20:00；煙火後直接搭 Taxi 前往</b></td><td data-label="連結"><a href="https://www.tablecheck.com/en/shops/themoon/reserve" target="_blank">TableCheck</a></td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="section">
+<h3>③ 2026/11 起日本退稅新制</h3>
+<div class="card">
+<p class="desc"><b>本趟已適用 Refund Method（先付後退）。</b>2026/11/1 起，免稅店先以含稅價格結帳；旅客須在購買日起 90 天內離境，並在機場托運行李前完成海關持出確認，確認後再由免稅店／退稅業者退款。</p>
+<div class="meta"><span class="chip green">購物時先含稅付款</span><span class="chip">90 天內離境</span><span class="chip red">托運行李前完成確認</span></div>
+<div class="note warning"><b>實用提醒：</b>退稅商品不要太早托運；成田可搭配 Visit Japan Web 簡化部分手續，但是否需要實體查驗仍以海關當場判定為準。</div>
+<div class="actions"><a class="btn primary" href="https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html" target="_blank">日本觀光廳新制</a><a class="btn" href="https://www.vjw.digital.go.jp/" target="_blank">Visit Japan Web</a></div>
+</div>
+</section>
+<section class="section">
+<h3>④ 中信 LaLaport JCB 晶緻卡｜成田 T1 貴賓室</h3>
+<div class="card">
+<p class="desc"><b>結論：可以。</b> 中信 LaLaport 卡有 JCB「晶緻卡（Precious）」等級；JCB 台灣 2026/4/1–2027/3/31 的日本／夏威夷機場服務明載「JCB 白金卡、晶緻卡」每服務期最多免費 6 次，成田 T1 的 <b>I.A.S.S EXECUTIVE LOUNGE 1</b> 在適用名單內。</p>
+<div class="grid2">
+<div class="note good"><b>怎麼用</b><br/>① 帶實體 JCB 晶緻卡<br/>② 出示持卡人本人同名、當日有效登機證<br/>③ 櫃台刷卡確認資格／次數<br/>④ 本人免費額度內入場；同行者通常另計費</div>
+<div class="note"><b>位置</b><br/>成田機場 T1 中央大樓 5F<br/><b>安檢前</b><br/>07:00–21:00<br/>所以你要先進 Lounge，再去安檢／出境。</div>
+</div>
+<p class="small">這項是 JCB 國際組織的日本機場貴賓室權益，與中國信託自己「指定卡別＋消費門檻」的銀行貴賓室方案是不同制度。</p>
+<div class="actions"><a class="btn primary" href="https://www.tw.jcb/zh-tw/consumers/platinum/airport-lounge/index.html" target="_blank">JCB 台灣官方</a><a class="btn" href="https://www.narita-airport.jp/en/service/lounge/credit/" target="_blank">成田機場 Lounge 官方</a></div>
+</div>
+</section>
+<section class="section">
+<h3>⑤ LuggAgent｜只保留 Day 4 飯店 → 成田</h3>
+<div class="card">
+<p class="desc"><b>Day 1 不使用 LuggAgent。</b> 直接成田 T1 搭機場巴士到喜來登寄行李。LuggAgent 只留在 Day 4 早上，將大行李由喜來登送至成田，讓你可以看完 Maxell Aqua Park Shinagawa 17:30 海豚秀後直接去機場。</p>
+</div>
+</section>
+<section class="section">
+<h3>⑥ 美食安排｜本次正式排入與備選</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>餐廳</th><th>狀態</th><th>安排</th></tr></thead>
+<tbody>
+<tr><td data-label="餐廳">大和壽司</td><td data-label="狀態">✅ Day 1</td><td data-label="安排">約 10:20 現場候位；若班機／巴士延誤或排隊太久，改千客萬來海鮮。</td></tr>
+<tr><td data-label="餐廳">利久牛舌・渋谷ヒカリエ店</td><td data-label="狀態">✅ Day 1</td><td data-label="安排">SHIBUYA SKY 後步行前往，約 19:45 晚餐。</td></tr>
+<tr><td data-label="餐廳">名代 宇奈とと 上野店</td><td data-label="狀態">✅ Day 2</td><td data-label="安排">賞楓動線中快速吃炭火鰻魚丼，不接受訂位。</td></tr>
+<tr><td data-label="餐廳">THE MOON</td><td data-label="狀態">✅ Day 3</td><td data-label="安排">12/5 20:00 固定；台場煙火後直接搭 Taxi 前往。</td></tr>
+<tr><td data-label="餐廳">Red Rock 原宿</td><td data-label="狀態">✅ Day 4</td><td data-label="安排">原宿午餐，主打 Roast Beef Bowl。</td></tr>
+<tr><td data-label="餐廳">五代目花山烏冬</td><td data-label="狀態">↔ 備選</td><td data-label="安排">若臨時取消原宿午餐，可考慮銀座店，但會改變 Day 4 動線。</td></tr>
+<tr><td data-label="餐廳">白鬍子泡芙工房</td><td data-label="狀態">↔ 備選</td><td data-label="安排">位置不在主動線，本次不特地繞路。</td></tr>
+<tr><td data-label="餐廳">林屋鰻魚飯</td><td data-label="狀態">❌ 本次不排</td><td data-label="安排">若指川越林屋，需要另排川越半日／一日。</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="section">
+<h3>⑦ Caretta 汐留聖誕點燈｜2026 是否還有？</h3>
+<div class="card">
+<p class="desc"><b>目前不能把它當作 2026 確定活動。</b> 你提供的波比文章介紹的是 2019–2020《阿拉丁》主題 Caretta Illumination；文章也明確寫到 2020–2021 活動取消。雖然該文章在 2026 有更新日期，但內容本身仍是舊活動資訊。</p>
+<p class="desc">我另外核對 Caretta 汐留 2026 官方「活動與新聞」頁，截至 2026/11/19 官方活動頁仍沒有看到 2026 冬季大型 Caretta Illumination 的正式公告。因此這次行程不會為了舊活動特地繞去。</p>
+<div class="note good"><b>地點仍可列為備案：</b>Caretta Shiodome 靠近汐留／新橋，46–47F 有高樓餐廳與景觀。如果 Day 1 或 Day 3 遇雨、臨時取消戶外活動，可改成汐留散步＋高樓用餐。</div>
+<div class="actions">
+<a class="btn" href="https://bobbytravel.tw/caretta-illumination/" target="_blank">你提供的文章</a>
+<a class="btn primary" href="https://www.caretta.jp/event" target="_blank">Caretta 官方活動頁</a>
+</div>
+</div>
+</section>
+<section class="section">
+<h3>⑧ 行前 Checklist <span class="small">（會自動記住勾選狀態）</span></h3>
+<div class="card checklist" id="checks">
+<label><input data-k="passport" type="checkbox"/>護照效期／樂桃訂位資料確認</label>
+<label><input data-k="vjw" type="checkbox"/>完成 Visit Japan Web</label>
+<label><input data-k="sky" type="checkbox"/>12/3 18:00 SHIBUYA SKY（Klook 2 張）已購買</label>
+<label><input data-k="sushi" type="checkbox"/>大和壽司 Day 1 現場候位／備案確認</label>
+<label><input data-k="rikugien" type="checkbox"/>12/4 六義園 18:00–19:30 夜間票已購買</label>
+<label><input data-k="rikyu" type="checkbox"/>Day 1 利久牛舌・渋谷ヒカリエ店已確認</label>
+<label><input data-k="moon" type="checkbox"/>12/5 20:00 THE MOON 已確認</label>
+<label><input data-k="fireworks" type="checkbox"/>12/5 當天下午再次確認台場煙火是否因天候取消</label>
+<label><input data-k="luggout" type="checkbox"/>12/6 LuggAgent 飯店→成田已訂，11:00 前交件</label>
+<label><input data-k="jcb" type="checkbox"/>帶中信 LaLaport JCB 晶緻「實體卡」</label>
+<label><input data-k="tax" type="checkbox"/>退稅商品預留可供海關檢查的收納方式</label>
+<label><input data-k="weather" type="checkbox"/>出發前 3 天重查東京天氣、紅葉實況與臨時休館</label>
+</div>
+<div class="progress"><i id="prog"></i></div>
+<div class="small" id="progtext" style="margin-top:6px"></div>
+</section>
+<section class="section">
+<h3>⑨ 官方／可信來源</h3>
+<details><summary>景點與交通</summary><div>
+<p><a href="https://www.shijou.metro.tokyo.lg.jp/calendar/2026" target="_blank">東京都中央卸売市場｜2026 開休市曆</a></p>
+<p><a href="https://tokyo-toyosu.manyo.co.jp/" target="_blank">東京豐洲萬葉俱樂部</a></p>
+<p><a href="https://www.shibuya-scramble-square.com/sky/ticket/" target="_blank">SHIBUYA SKY 官方購票</a></p>
+<p><a href="https://www.aqua-park.jp/en/aqua/info/?lang=en" target="_blank">Maxell Aqua Park Shinagawa營業日曆</a></p>
+<p><a href="https://www.aqua-park.jp/en/aqua/event/" target="_blank">Maxell Aqua Park Shinagawa 活動時間</a></p>
+<p><a href="https://www.tokyo-odaiba.net/zh-tw/rainbow2026/" target="_blank">2026 台場彩虹煙火官方</a></p>
+<p><a href="https://www.tokyo-park.or.jp/park/koishikawakorakuen/news/2026/8_11_20_12_6.html" target="_blank">小石川後樂園 2026 深山紅葉</a></p>
+<p><a href="https://www.tokyo-park.or.jp/special/rikugien_lighting/index.html" target="_blank">六義園 2026 夜間特別觀賞</a></p>
+<p><a href="https://www.caretta.jp/event" target="_blank">Caretta 汐留官方活動頁</a></p>
+<p><a href="https://www.ntv.co.jp/oo-dokei/" target="_blank">日テレ大時計官方</a></p>
+<p><a href="https://www.kunaicho.go.jp/visit/higashigyoen/index.html" target="_blank">皇居東御苑・宮內廳</a></p>
+<p><a href="https://www.tokyo-park.or.jp/park/kyu-furukawa/" target="_blank">舊古河庭園官方</a></p>
+<p><a href="https://timetables.jreast.co.jp/en/2611/train/060/063411.html" target="_blank">JR 東日本 N’EX 49 時刻</a></p>
+<p><a href="https://www.roppongihills.com/sp/christmashills/" target="_blank">ROPPONGI HILLS CHRISTMAS 2026</a></p>
+<p><a href="https://thesun-themoon.com/en/moon/access/" target="_blank">THE MOON 官方資訊</a></p>
+<p><a href="https://www.tokyoeki-1bangai.co.jp/en/" target="_blank">東京站一番街</a></p>
+</div></details>
+<details><summary>餐廳與預約</summary><div>
+<p><a href="https://www.tablecheck.com/zh-TW/shops/daiwazushi/reserve" target="_blank">大和壽司 TableCheck</a></p>
+<p><a href="https://www.hikarie.jp/shop/detail/?scd=000083" target="_blank">利久牛舌・渋谷ヒカリエ店</a></p>
+<p><a href="https://www.unatoto.com/shop/ueno/" target="_blank">名代 宇奈とと 上野店</a></p>
+<p><a href="https://www.tablecheck.com/en/shops/themoon/reserve" target="_blank">THE MOON TableCheck</a></p>
+<p><a href="https://www.hanayamaudon.co.jp/store/" target="_blank">五代目花山烏冬官方店舖資訊</a></p>
+<p><a href="https://shiro-hige.net/" target="_blank">白鬍子泡芙工房官方</a></p>
+</div></details>
+<details><summary>退稅・信用卡・行李</summary><div>
+<p><a href="https://www.mlit.go.jp/kankocho/tax-free/content/001991773.pdf" target="_blank">日本政府｜2026/11 Refund Method</a></p>
+<p><a href="https://www.tw.jcb/zh-tw/consumers/platinum/airport-lounge/index.html" target="_blank">JCB 台灣｜日本機場貴賓室</a></p>
+<p><a href="https://www.narita-airport.jp/en/service/lounge/credit/" target="_blank">成田機場｜信用卡 Lounge</a></p>
+<p><a href="https://www.klook.com/zh-TW/activity/5624-airport-luggage-services-tokyo/?aid=417&amp;utm_medium=affiliate-alwayson&amp;utm_source=non-network&amp;utm_campaign=417&amp;utm_term=" target="_blank">Klook｜LuggAgent</a></p>
+</div></details>
+</section>
+</section>
+</main>
+<div class="footer">
+    本頁為 2026/11/19 依官方公開資訊及你提供的六本木活動／THE MOON資料更新的旅行手冊。營業時間、紅葉狀況、票價、交通與預約規則仍可能臨時調整；出發前 72 小時請再次點開官方連結確認。<br/>
+    行程設計原則：你已去過的淺草、銀座觀光、明治神宮、河口湖、鎌倉等不重複；銀座僅保留「採買」功能。
+  </div>
+</div>
+<script>
+const tabs=[...document.querySelectorAll('.tab')];
+const panels=[...document.querySelectorAll('.panel')];
+tabs.forEach(t=>t.addEventListener('click',()=>{
+ tabs.forEach(x=>x.classList.remove('active')); panels.forEach(x=>x.classList.remove('active'));
+ t.classList.add('active'); document.getElementById(t.dataset.tab).classList.add('active');
+ window.scrollTo({top:document.querySelector('.tabs').offsetTop-8,behavior:'smooth'});
+ history.replaceState(null,'','#'+t.dataset.tab);
+}));
+const hash=location.hash.replace('#','');
+if(hash && document.getElementById(hash)){
+ const b=document.querySelector(`[data-tab="${hash}"]`); if(b)b.click();
+}
+const checks=[...document.querySelectorAll('#checks input')];
+checks.forEach(c=>{
+ c.checked=localStorage.getItem('tokyo26_'+c.dataset.k)==='1';
+ c.addEventListener('change',()=>{localStorage.setItem('tokyo26_'+c.dataset.k,c.checked?'1':'0');updateProg();});
+});
+function updateProg(){
+ const done=checks.filter(c=>c.checked).length, total=checks.length;
+ document.getElementById('prog').style.width=(done/total*100)+'%';
+ document.getElementById('progtext').textContent=`行前完成度 ${done}/${total}（${Math.round(done/total*100)}%）`;
+}
+updateProg();
+</script>
+</body></html>
