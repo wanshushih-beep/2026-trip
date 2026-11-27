@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>東京聖誕・賞楓・美食 4D3N｜V13</title>
+<style>
+:root{
+  --bg:#f5efe5;--paper:#fffaf3;--ink:#342d2a;--muted:#7b6e65;
+  --wine:#8b3a2f;--wine2:#b25b47;--gold:#c99b58;--green:#5f715f;
+  --line:#e7d7c2;--soft:#f1e4d3;--blue:#4e6b79;--shadow:0 14px 38px rgba(82,57,37,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(circle at 10% 0%,#fff8eb 0,transparent 30%),
+ linear-gradient(180deg,#efe4d5 0,#f9f5ef 20%,#f5efe5 100%);
+ color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.65}
+a{color:inherit}
+.wrap{max-width:1040px;margin:auto;padding:26px 18px 80px}
+.hero{background:linear-gradient(135deg,#fffaf2 0,#f8ead8 60%,#efd5bd 100%);
+ border:1px solid #e5ceb4;border-radius:30px;padding:34px 32px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"楓";position:absolute;right:-12px;top:-58px;font-family:serif;font-size:190px;color:rgba(139,58,47,.07)}
+.kicker{letter-spacing:.18em;font-weight:800;color:var(--wine);font-size:.78rem}
+h1{font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;margin:10px 0 14px}
+.sub{max-width:720px;color:var(--muted);font-size:1.03rem}
+.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.stat{background:rgba(255,255,255,.62);border:1px solid rgba(139,58,47,.12);padding:14px 16px;border-radius:18px}
+.stat b{display:block;color:var(--wine);font-size:.86rem}.stat span{font-size:.96rem}
+.tabs{position:sticky;top:0;z-index:20;display:flex;gap:8px;overflow:auto;padding:12px 4px;margin:18px 0;background:rgba(245,239,229,.92);backdrop-filter:blur(12px)}
+.tab{border:1px solid var(--line);background:#fffaf3;padding:10px 15px;border-radius:999px;white-space:nowrap;font-weight:800;color:#705d51;cursor:pointer}
+.tab.active{background:var(--wine);color:white;border-color:var(--wine)}
+.panel{display:none}.panel.active{display:block}
+.dayhead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:26px 2px 18px}
+.dayhead h2{margin:0;font-family:Georgia,"Noto Serif TC",serif;font-size:2rem}
+.dayhead .theme{color:var(--wine);font-weight:800}
+.banner{background:#4d3d35;color:white;border-radius:22px;padding:18px 20px;margin:12px 0 20px}
+.banner strong{color:#ffd9ad}.banner small{display:block;color:#e7d9cd;margin-top:4px}
+.timeline{position:relative;margin-left:10px}
+.timeline:before{content:"";position:absolute;left:16px;top:4px;bottom:4px;width:2px;background:linear-gradient(var(--gold),var(--wine))}
+.stop{position:relative;padding-left:48px;margin:0 0 20px}
+.stop:before{content:"";position:absolute;left:8px;top:24px;width:17px;height:17px;border:4px solid var(--paper);background:var(--wine);border-radius:50%;box-shadow:0 0 0 2px var(--wine)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 8px 24px rgba(77,57,39,.06)}
+.time{color:var(--wine);font-weight:900;font-size:.82rem;letter-spacing:.08em}
+.card h3{margin:4px 0 5px;font-size:1.25rem}.desc{color:#675b54;margin:5px 0 12px}
+.meta{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.chip{font-size:.78rem;background:#f0e2d0;color:#6c5545;border-radius:999px;padding:5px 9px;font-weight:750}
+.chip.green{background:#e2ebdf;color:#476047}.chip.blue{background:#e2ebef;color:#416273}.chip.red{background:#f3deda;color:#8b3a2f}
+.route{margin-top:13px;padding:12px 14px;border-left:4px solid var(--gold);background:#f8f0e5;border-radius:11px;color:#5c5049}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;padding:8px 11px;border-radius:11px;background:white;border:1px solid #dfcbb4;font-weight:800;font-size:.83rem}
+.btn.primary{background:var(--wine);color:white;border-color:var(--wine)}
+.btn:hover{transform:translateY(-1px)}
+.note{padding:13px 15px;border-radius:14px;background:#fff1d8;border:1px solid #e7c993;margin-top:12px}
+.warning{background:#f8e3df;border-color:#e4b9af}
+.good{background:#e8efe5;border-color:#bfceb8}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.section{margin:30px 0}.section h3{font-size:1.25rem;margin-bottom:10px}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:var(--paper)}
+table{width:100%;border-collapse:collapse;min-width:680px}th,td{padding:12px 13px;border-bottom:1px solid #ecdfcf;text-align:left;vertical-align:top}
+th{background:#f0e3d1;color:#6a5141;font-size:.83rem}
+details{background:var(--paper);border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:0 15px}
+summary{cursor:pointer;padding:14px 2px;font-weight:900;color:#654b3c}
+details>div{padding:0 2px 15px;color:#62564f}
+.checklist label{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed #e2d6c7}
+.checklist input{width:19px;height:19px;accent-color:var(--wine)}
+.small{font-size:.86rem;color:var(--muted)}
+.footer{margin-top:34px;padding:20px;border-top:1px solid var(--line);font-size:.83rem;color:var(--muted)}
+.progress{height:8px;background:#eadcc9;border-radius:999px;overflow:hidden;margin-top:12px}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--wine));width:0}
+.score{font-size:.75rem;font-weight:900;color:var(--wine)}
+@media(max-width:760px){
+ .wrap{padding:12px 11px 60px}.hero{padding:25px 20px;border-radius:23px}.hero-grid,.grid2,.grid3{grid-template-columns:1fr}
+ .dayhead{display:block}.dayhead h2{font-size:1.65rem}.timeline{margin-left:2px}.stop{padding-left:40px}.timeline:before{left:12px}.stop:before{left:4px}
+ .card{padding:17px}.tabs{margin-left:-4px;margin-right:-4px}.stat{padding:11px 13px}
+}
+@media print{.tabs{display:none}.panel{display:block!important;page-break-before:always}.hero{box-shadow:none}.card{box-shadow:none}}
+
+/* v9 mobile sharing polish */
+.place-tag{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:850;letter-spacing:.02em;color:var(--wine);background:#f8eadb;border:1px solid #ead2ba;border-radius:999px;padding:4px 8px;margin-bottom:5px}
+@media(max-width:760px){
+  body{font-size:15px;line-height:1.62}
+  .wrap{padding:8px 9px calc(78px + env(safe-area-inset-bottom))}
+  .hero{padding:20px 17px 18px;border-radius:20px}
+  .hero:after{font-size:125px;right:-8px;top:-30px}
+  h1{font-size:2rem;line-height:1.08;margin:8px 0 10px}
+  .sub{font-size:.92rem;line-height:1.55}
+  .hero-grid{grid-template-columns:1fr;gap:7px;margin-top:16px}
+  .stat{padding:9px 12px;border-radius:14px}
+  .tabs{
+    position:sticky;top:0;z-index:50;margin:10px -9px 14px;padding:9px 10px;
+    gap:6px;background:rgba(245,239,229,.96);
+    border-bottom:1px solid rgba(139,58,47,.08);
+    scrollbar-width:none
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{padding:9px 13px;font-size:.84rem;box-shadow:0 2px 8px rgba(82,57,37,.05)}
+  .dayhead{margin:19px 2px 12px}
+  .dayhead h2{font-size:1.42rem;line-height:1.25;margin-top:3px}
+  .dayhead .theme{font-size:.82rem}
+  .score{display:inline-flex;margin-top:7px;background:#f5e2d8;padding:4px 8px;border-radius:999px}
+  .banner{padding:14px 15px;border-radius:16px;font-size:.91rem;margin:10px 0 14px}
+  .timeline{margin-left:0}
+  .timeline:before{left:9px}
+  .stop{padding-left:31px;margin-bottom:13px}
+  .stop:before{left:1px;top:20px;width:15px;height:15px;border-width:3px}
+  .card{padding:15px 14px;border-radius:17px;box-shadow:0 5px 16px rgba(77,57,39,.055)}
+  .card h3{font-size:1.08rem;line-height:1.35;margin:3px 0 6px}
+  .time{font-size:.75rem;letter-spacing:.04em}
+  .desc{font-size:.91rem;margin:5px 0 9px}
+  .route,.note{font-size:.88rem;padding:10px 11px;margin-top:9px}
+  .actions{display:grid;grid-template-columns:1fr;gap:7px;margin-top:10px}
+  .btn{width:100%;justify-content:center;padding:10px 11px;font-size:.86rem;border-radius:12px}
+  .meta{gap:5px;margin:7px 0}
+  .chip{font-size:.71rem;padding:4px 7px}
+  .section{margin:21px 0}
+  .section h3{font-size:1.08rem;margin:0 0 8px}
+  details{border-radius:14px;margin:8px 0;padding:0 11px}
+  summary{padding:12px 1px}
+  .tablewrap{overflow:visible;border:0;background:transparent}
+  table{min-width:0;border-collapse:separate;border-spacing:0 9px}
+  table thead{display:none}
+  table,tbody,tr,td{display:block;width:100%}
+  table tr{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:9px 11px;box-shadow:0 4px 13px rgba(77,57,39,.045)}
+  table td{padding:5px 2px;border:0;font-size:.88rem}
+  table td:before{content:attr(data-label);display:block;font-size:.7rem;font-weight:900;color:var(--wine);letter-spacing:.04em;margin-bottom:1px}
+  .checklist label{font-size:.9rem;padding:9px 0}
+  .footer{padding:16px 5px 8px;margin-top:22px;font-size:.78rem}
+}
+
+
+.dailyroute,.dayresources{margin:18px 0;padding:16px;border:1px solid #e2d8cc;border-radius:16px;background:#fff}.dailyroute h3,.dayresources h3{margin:0 0 12px;font-size:19px}.routechain{font-size:14px;line-height:2}.routechain a{color:#80533b;text-decoration:none;font-weight:700}.resourcegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.resource{display:block;padding:12px;border:1px solid #e2d8cc;border-radius:10px;color:#713d2c;text-decoration:none;font-weight:650;background:#fffaf4;overflow-wrap:anywhere}.checklist{display:grid;gap:8px}.checklist label{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid #e2d8cc;border-radius:10px;line-height:1.6}.checklist input{flex:none;width:19px;height:19px;margin-top:3px;accent-color:#80533b}.progress-track{height:8px;background:#eee5da;border-radius:10px;overflow:hidden;margin:8px 0 14px}.progress-track #prog{height:100%;background:#80533b;width:0}.progress-label{font-size:13px;color:#80533b}@media(max-width:600px){.resourcegrid{grid-template-columns:1fr}.dailyroute,.dayresources{padding:12px}.resource{padding:12px}}</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<div class="kicker">TOKYO · CHRISTMAS · AUTUMN COLORS · 4 DAYS 3 NIGHTS</div>
+<h1>東京聖誕・賞楓・美食 4D3N</h1>
+<div class="sub">2026/12/3（四）– 12/6（日）｜東京灣喜來登大飯店。豐洲市場、雙會場東京聖誕市集、六本木與 Midtown 點燈、六義園與皇居秋色、teamLab 濱離宮、原宿與品川水族館、台場煙火，最後以東京迪士尼海洋收尾。</div>
+<div class="hero-grid">
+<div class="stat"><b>去程</b><span>MM620｜12/3 02:25 TPE T1 → 06:30 NRT T1</span></div>
+<div class="stat"><b>住宿</b><span>Sheraton Grande Tokyo Bay Hotel｜3 晚｜含早餐</span></div>
+<div class="stat"><b>回程</b><span>MM627｜12/6 22:05 NRT T1 → 12/7 01:25 TPE T1</span></div>
+</div>
+</section>
+<nav class="tabs" id="tabs">
+<button class="tab active" data-tab="d1">Day 1</button>
+<button class="tab" data-tab="d2">Day 2</button>
+<button class="tab" data-tab="d3">Day 3</button>
+<button class="tab" data-tab="d4">Day 4</button>
+<button class="tab" data-tab="prep">行前提醒</button>
+</nav>
+<main>
+<section class="panel active" id="d1">
+<div class="dayhead"><div><div class="theme">12/3（四）｜抵達・豐洲・六本木聖誕夜</div>
+<h2>成田 → 喜來登 → 豐洲市場 → 新豐洲聖誕市集 → 六本木 Hills → 東京 Midtown</h2></div>
+<span class="score">08:00 巴士・15:00 市集・19:30 晚餐</span></div><div class="dailyroute"><h3>當日路線總覽</h3><div class="routechain"><a href="https://www.google.com/maps/search/?api=1&amp;query=Narita+Airport+Terminal+1%2C+1-1+Furugome%2C+Narita%2C+Chiba+282-0004" rel="noopener" target="_blank">成田機場第一航廈</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Sushi%2C+6-3-1+Toyosu%2C+Koto+City%2C+Tokyo" rel="noopener" target="_blank">大和壽司</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Toyosu+Senkyaku+Banrai%2C+6-5-1+Toyosu%2C+Koto+City%2C+Tokyo" rel="noopener" target="_blank">豐洲千客萬來／東京豐洲萬葉俱樂部</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%85%AD%E6%9C%AC%E6%9C%A86-10-1" rel="noopener" target="_blank">六本木 Hills・CHRISTMAS HILLS 2026</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Tanjiro+Roppongi%2C+7-14-11+Roppongi%2C+Minato+City%2C+Tokyo" rel="noopener" target="_blank">晚餐｜炭治郎 六本木店</a></div></div>
+<div class="card"><div class="time">🌤 近期預報參考</div>
+<p class="desc">目前多家預報顯示 12/3 東京白天偏溫和，約 18–19°C、早晚約 10–13°C；實際天氣仍以出發前 1–2 天日本氣象廳為準。抵達日晚上六本木會在戶外走動，仍建議攜帶防風外套。</p>
+<div class="actions"><a class="btn" href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&amp;area_code=130000" target="_blank">JMA 東京天氣</a></div></div>
+<div class="timeline">
+<div class="stop"><div class="card">
+<div class="time">06:30–07:45</div><span class="place-tag">抵達</span><h3>成田機場第一航廈</h3>
+<p class="desc">06:30 抵達後立即辦理入境、領行李。07:45 為目標，非保證；若趕不上已購 08:00 班次，先向巴士櫃檯確認改票或重購 09:00 班（10:21 到飯店）。</p>
+<div class="meta"><span class="chip">〒282-0004 千葉県成田市古込1-1</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Narita+Airport+Terminal+1%2C+1-1+Furugome%2C+Narita%2C+Chiba+282-0004" target="_blank">Google Maps</a><a class="btn" href="https://www.keiseibus.co.jp/express-bus/90102-2/" target="_blank">機場巴士時刻</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">08:00–09:21</div><span class="place-tag">已購票</span><h3>成田 T1 → 東京灣喜來登</h3>
+<p class="desc">利木津／機場巴士直達飯店，現行時刻為 08:00 發車、約 09:21 抵達。抵達後直接在 Bell Desk 寄放行李。</p>
+<div class="route"><b>大眾運輸建議：</b>成田 T1 1F → 機場巴士 → Sheraton Grande Tokyo Bay Hotel，免轉車，約 81 分鐘。</div>
+<div class="meta"><span class="chip">千葉県浦安市舞浜1-9</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Narita+Airport+Terminal+1&amp;destination=Sheraton+Grande+Tokyo+Bay+Hotel&amp;travelmode=transit" target="_blank">交通 Google Maps</a><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Sheraton+Grande+Tokyo+Bay+Hotel%2C+1-9+Maihama%2C+Urayasu%2C+Chiba+279-0031" target="_blank">飯店定位</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">09:35–10:25</div><h3>喜來登 → 豐洲市場・大和壽司</h3>
+<p class="desc">大和壽司位於豐洲市場青果棟。抵達日不預約；若巴士延誤，視現場收客狀況改吃千客萬來。</p>
+<div class="route"><b>大眾運輸：</b>飯店接駁／Resort Line → 舞濱站 → JR 京葉線 1 站到新木場 → 東京 Metro 有樂町線到豐洲 → 百合海鷗線到市場前；含候車約 50–60 分鐘。<br/><b>省時方案：</b>抵達日建議 Taxi，約 30–40 分鐘。</div>
+<div class="meta"><span class="chip">東京都江東区豊洲6-3-1 豊洲市場5街区青果棟1F</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Sushi%2C+6-3-1+Toyosu%2C+Koto+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://bobbytravel.tw/toyosu-market/" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">10:25–12:00（彈性）</div><span class="place-tag">美食</span><h3>大和壽司</h3>
+<p class="desc">市場直送海鮮握壽司。現場候位可能達 1–2 小時；11:30 若仍未能入座或已停止收客，改至千客萬來用餐。</p>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Sushi%2C+6-3-1+Toyosu%2C+Koto+City%2C+Tokyo" target="_blank">Google Maps</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">12:00–14:20（彈性）</div><span class="place-tag">美食・溫泉</span><h3>豐洲千客萬來／東京豐洲萬葉俱樂部</h3>
+<p class="desc">江戶街景美食商場及溫泉設施。市集若停辦，可延長泡湯與休息至約15:00，再前往六本木。</p>
+<div class="route"><b>大和壽司 → 千客萬來：</b>市場前站周邊步行約 8–12 分鐘。兩個設施同址，無需再轉車。</div>
+<div class="meta"><span class="chip">東京都江東区豊洲6-5-1</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Toyosu+Senkyaku+Banrai%2C+6-5-1+Toyosu%2C+Koto+City%2C+Tokyo" target="_blank">千客萬來 Google Maps</a><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Toyosu+Manyo+Club%2C+6-5-1+Toyosu%2C+Koto+City%2C+Tokyo" target="_blank">萬葉俱樂部 Google Maps</a><a class="btn" href="https://bobbytravel.tw/senkyakubanrai/" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">14:20–14:40</div><h3>千客萬來 → 東京 Christmas Market 新豐洲會場</h3>
+<p class="desc">15:00 已購票；主辦方11/27公告全天閉場，12/3 尚未確認復業。出發前每日查看公告，若未復業直接跳過此站。</p>
+<div class="route"><b>建議：</b>直接步行約 10–15 分鐘；會場在新豐洲站與市場前站之間。</div>
+<div class="meta"><span class="chip">〒135-0061 東京都江東区豊洲6丁目4</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Christmas+Market+2026+Shin-Toyosu%2C+Toyosu+6-4%2C+Koto+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://tokyochristmas.net/shintoyosu/" target="_blank">2026 官方</a><a class="btn" href="https://tokyochristmas.net/shintoyosu/" target="_blank">2026 主辦方活動資訊</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">15:00–16:20</div><span class="place-tag">已購票</span><h3>東京 Christmas Market 2026・新豐洲</h3>
+<p class="desc">僅在正式確認復業時入場。若仍停辦，延長千客萬來／萬葉俱樂部停留，約15:00前往六本木。受影響日期票券全額退款，KKday自動取消；其他通路依官方指示。</p>
+<div class="actions"><a class="btn" href="https://tokyochristmas.net/news_2353/" target="_blank">停業及退款公告</a><a class="btn" href="https://tokyochristmas.net/news/" target="_blank">每日最新公告</a></div></div></div>
+<div class="stop"><div class="card"><div class="time">16:20–17:20（或15:00出發）</div><h3>新豐洲 → 六本木 Hills</h3><p class="desc">含步行、候車及轉乘約45–60分鐘。市集停辦則由市場前站搭百合海鷗線至豐洲，續走同一路線。</p><div class="route"><b>A.</b> 新豐洲站搭百合海鷗線往豐洲。<br/><b>B.</b> 豐洲轉有樂町線往和光市方向，至月島。<br/><b>C.</b> 月島轉都營大江戶線往大門、六本木方向，六本木站下車步行至 Hills。</div><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E6%96%B0%E8%B1%8A%E6%B4%B2%E9%A7%85+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B1%9F%E6%9D%B1%E5%8C%BA&amp;destination=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA&amp;travelmode=transit">交通 Google Maps</a><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E5%B8%82%E5%A0%B4%E5%89%8D%E9%A7%85+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B1%9F%E6%9D%B1%E5%8C%BA&amp;destination=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA&amp;travelmode=transit" target="_blank">備案：市場前站至六本木</a></div></div></div><div class="stop"><div class="card">
+<div class="time">17:20–19:10（可提早）</div><span class="place-tag">聖誕點燈</span><h3>六本木 Hills・CHRISTMAS HILLS 2026</h3>
+<p class="desc">欣賞欅坂 SNOW &amp; BLUE（17:00–22:00）、66 Plaza（至24:00）、毛利庭園（至23:00）、West Walk 聖誕樹及大屋根廣場聖誕市集（至21:00）。</p>
+<div class="meta"><span class="chip">東京都港区六本木6-10-1</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%85%AD%E6%9C%AC%E6%9C%A86-10-1" target="_blank">Google Maps</a><a class="btn" href="https://www.roppongihills.com/sp/christmashills/" target="_blank">2026 官方</a><a class="btn" href="https://tokyo.letsgojp.com/archives/404695/" target="_blank">參考攻略</a></div>
+</div></div><div class="stop"><div class="card"><div class="time">19:10–19:30</div><h3>六本木 Hills → 炭治郎 六本木店</h3><p class="desc">步行約 10–15 分鐘，預留報到時間。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA&amp;destination=%E7%82%AD%E6%B2%BB%E9%83%8E+%E5%85%AD%E6%9C%AC%E6%9C%A8%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%85%AD%E6%9C%AC%E6%9C%A87-14-11&amp;travelmode=walking">交通 Google Maps</a></div></div></div><div class="stop"><div class="card">
+<div class="time">19:30–21:00</div><span class="place-tag">已訂位</span><h3>晚餐｜炭治郎 六本木店</h3>
+<p class="desc">主打黑毛和牛、松阪牛與燒肉吃到飽，六本木站步行約 1 分鐘。營業到 23:30，19:30 用餐時間充裕。</p>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tanjiro+Roppongi%2C+7-14-11+Roppongi%2C+Minato+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://gurunavi.com/zh-hant/ghc2504/rst/" target="_blank">餐廳資訊</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">21:00–22:00</div><span class="place-tag">聖誕點燈</span><h3>東京 MIDTOWN・MIDTOWN CHRISTMAS 2026</h3>
+<p class="desc">餐後步行約 5–10 分鐘至東京 Midtown，欣賞 Midtown Garden 冬季燈光及聖誕裝飾。</p>
+<div class="meta"><span class="chip">東京都港区赤坂9-7-1</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E7%82%AD%E6%B2%BB%E9%83%8E+%E5%85%AD%E6%9C%AC%E6%9C%A8%E5%BA%97&amp;destination=%E6%9D%B1%E4%BA%AC%E3%83%9F%E3%83%83%E3%83%89%E3%82%BF%E3%82%A6%E3%83%B3+%E8%B5%A4%E5%9D%829-7-1&amp;travelmode=walking" target="_blank">Google Maps</a><a class="btn" href="https://www.tokyo-midtown.com/jp/event/8187/" target="_blank">2026 官方</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">22:00–23:15</div><h3>東京 MIDTOWN → 東京灣喜來登</h3>
+<p class="desc">晚間回飯店建議以日比谷線＋JR 京葉線為主，避免繞回澀谷。</p>
+<div class="route"><b>A.</b> 六本木站搭東京 Metro 日比谷線，往北千住方向，到八丁堀站。<br/>
+<b>B.</b> 八丁堀站轉 JR 京葉線／武藏野線，往蘇我／海濱幕張方向，到舞濱站。<br/>
+<b>C.</b> 舞濱站南口若趕上飯店免費接駁車，直接回喜來登；若需等候，步行到 Resort Gateway Station，搭 Disney Resort Line 到 Bayside Station，再步行或接飯店接駁。<br/>
+<b>預抓：</b>約 65–75 分鐘；晚間需注意 Resort Line 與飯店接駁末班。</div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Tokyo+Midtown&amp;destination=Sheraton+Grande+Tokyo+Bay+Hotel&amp;travelmode=transit" target="_blank">回飯店 Google Maps</a><a class="btn" href="https://www.tokyodisneyresort.jp/en/tdr/resortline/station.html" target="_blank">單軌官方時刻</a></div>
+<div class="note">Resort Gateway Station 官方末班23:30；飯店接駁末班未確認，若錯過接駁或單軌，舞濱南口搭計程車回飯店。</div></div></div>
+</div><section class="dayresources"><h3>當日景點與美食攻略</h3><div class="resourcegrid"><a class="resource" href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&amp;area_code=130000" rel="noopener" target="_blank">JMA 東京天氣</a><a class="resource" href="https://www.keiseibus.co.jp/express-bus/90102-2/" rel="noopener" target="_blank">機場巴士時刻</a><a class="resource" href="https://bobbytravel.tw/toyosu-market/" rel="noopener" target="_blank">喜來登 → 豐洲市場・大和壽司｜參考攻略</a><a class="resource" href="https://bobbytravel.tw/senkyakubanrai/" rel="noopener" target="_blank">豐洲千客萬來／東京豐洲萬葉俱樂部｜參考攻略</a><a class="resource" href="https://tokyochristmas.net/shintoyosu/" rel="noopener" target="_blank">千客萬來 → 東京 Christmas Market 新豐洲會場｜2026 官方</a><a class="resource" href="https://tokyochristmas.net/shintoyosu/" rel="noopener" target="_blank">2026 主辦方活動資訊</a><a class="resource" href="https://www.roppongihills.com/sp/christmashills/" rel="noopener" target="_blank">六本木 Hills・CHRISTMAS HILLS 2026｜2026 官方</a><a class="resource" href="https://tokyo.letsgojp.com/archives/404695/" rel="noopener" target="_blank">六本木點燈攻略</a><a class="resource" href="https://gurunavi.com/zh-hant/ghc2504/rst/" rel="noopener" target="_blank">晚餐｜炭治郎 六本木店｜餐廳資訊</a><a class="resource" href="https://www.tokyo-midtown.com/jp/event/8187/" rel="noopener" target="_blank">東京 MIDTOWN・MIDTOWN CHRISTMAS 2026｜2026 官方</a><a class="resource" href="https://tokyo.letsgojp.com/archives/45148/" rel="noopener" target="_blank">東京 Midtown 聖誕點燈攻略</a><a class="resource" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E6%96%B0%E8%B1%8A%E6%B4%B2%E9%A7%85+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B1%9F%E6%9D%B1%E5%8C%BA&amp;destination=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA&amp;travelmode=transit" rel="noopener" target="_blank">新豐洲至六本木轉乘</a></div></section></section><section class="panel" id="d2">
+<div class="dayhead"><div><div class="theme">12/4（五）｜庭園・銀座・東京站・雙聖誕夜</div>
+<h2>六義園 → 銀座花山烏冬 → 宮崎駿大時鐘 → 皇居 → 芝公園 → teamLab 濱離宮</h2></div>
+<span class="score">16:00 芝公園・18:30 濱離宮已購票</span></div><div class="dailyroute"><h3>當日路線總覽</h3><div class="routechain"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rikugien+Gardens%2C+6-16-3+Honkomagome%2C+Bunkyo+City%2C+Tokyo" rel="noopener" target="_blank">六義園｜白天紅葉</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Godaime+Hanayama+Udon+Ginza%2C+3-14-13+Ginza%2C+Chuo+City%2C+Tokyo" rel="noopener" target="_blank">五代目 花山烏冬 銀座店</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Imperial+Palace+East+Gardens%2C+1+Chiyoda%2C+Chiyoda+City%2C+Tokyo" rel="noopener" target="_blank">皇居東御苑</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=First+Avenue+Tokyo+Station%2C+1-9-1+Marunouchi%2C+Chiyoda+City%2C+Tokyo" rel="noopener" target="_blank">東京站一番街</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Marunouchi+Building%2C+2-4-1+Marunouchi%2C+Chiyoda+City%2C+Tokyo" rel="noopener" target="_blank">丸之內大廈／丸之內區</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Christmas+Market+2026+Shiba+Park%2C+3-2+Shibakoen%2C+Minato+City%2C+Tokyo" rel="noopener" target="_blank">東京 Christmas Market 2026・芝公園</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Hamarikyu+Gardens%2C+1-1+Hamarikyuteien%2C+Chuo+City%2C+Tokyo" rel="noopener" target="_blank">teamLab 濱離宮｜ARTE TOKYO 夜間特別企畫</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Unatoto+Shimbashi%2C+3-16-19+Shimbashi%2C+Minato+City%2C+Tokyo" rel="noopener" target="_blank">晚餐｜名代 宇奈とと 新橋店</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Midtown+Hibiya%2C+1-1-2+Yurakucho%2C+Chiyoda+City%2C+Tokyo" rel="noopener" target="_blank">日比谷 Step 廣場・HIBIYA Magic Time Illumination</a></div></div>
+<div class="card"><div class="time">🌤 近期預報參考</div><p class="desc">目前預報約 16–18°C，雲量較多；庭園與兩個晚間活動步行時間長，仍建議輕羽絨／防風外套與好走鞋。</p></div>
+<div class="banner">固定票券：芝公園16:00、teamLab濱離宮18:30。大時鐘12:00場優先；花山烏冬候位過長改附近午餐，東京站採買與夜間點燈均可縮短。</div>
+<div class="timeline">
+<div class="stop"><div class="card">
+<div class="time">07:35–09:00</div><h3>喜來登 → 六義園</h3>
+<div class="route">飯店接駁或單軌到舞濱→JR京葉線東京→JR山手線駒込（京濱東北線不停駒込）→步行。預抓75–85分鐘。</div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Sheraton+Grande+Tokyo+Bay+Hotel&amp;destination=Rikugien+Gardens&amp;travelmode=transit" target="_blank">Google Maps</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">09:00–10:20</div><span class="place-tag">賞楓</span><h3>六義園｜白天紅葉</h3>
+<p class="desc">江戶時代代表性的回遊式庭園，12 月初正值東京紅葉尾聲。白天欣賞池畔、渡月橋、杜鵑茶屋與紅葉倒影。</p>
+<div class="meta"><span class="chip">東京都文京区本駒込6-16-3</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Rikugien+Gardens%2C+6-16-3+Honkomagome%2C+Bunkyo+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://gototravel.tw/rikugien-gardens/" target="_blank">參考攻略</a></div>
+</div></div>
+
+
+<div class="stop"><div class="card">
+<div class="time">10:20–11:20</div><h3>六義園 → 日テレ大時鐘</h3>
+<p class="desc">12:00場約11:57啟動，11:45前到場。</p>
+<div class="route">駒込搭JR山手線至新橋，步行至日本電視台，約45–60分鐘。</div>
+<div class="meta"><span class="chip">東京都港区東新橋1-6-1 日本テレビタワー</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Nippon+Television+Big+Clock%2C+1-6-1+Higashi-Shimbashi%2C+Minato+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://www.ntv.co.jp/oo-dokei/" target="_blank">官方場次</a><a class="btn" href="https://www.bring-you.info/zh-tw/shiodome" target="_blank">參考攻略</a><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E5%85%AD%E7%BE%A9%E5%9C%92+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%87%E4%BA%AC%E5%8C%BA&amp;destination=%E6%97%A5%E3%83%86%E3%83%AC%E5%A4%A7%E6%99%82%E8%A8%88+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA&amp;travelmode=transit" target="_blank">轉乘導航</a></div>
+</div></div><div class="stop"><div class="card"><div class="time">11:45–12:05</div><h3>日テレ大時鐘｜12:00演出</h3><p class="desc">宮崎駿設計的機械鐘，約11:57開始。<br/>若延誤，直接跳過演出，不追15:00場。</p><div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=日テレ大時計+東新橋1-6-1">Google Maps</a><a class="btn" href="https://www.ntv.co.jp/oo-dokei/">官方</a></div></div></div>
+<div class="stop"><div class="card">
+<div class="time">13:45–14:45</div><h3>銀座 → 皇居東御苑平川門</h3>
+<div class="route">由花山烏冬搭Taxi至皇居平川門約15–25分鐘，另留安檢時間；大眾運輸可由東銀座經日比谷線／東西線至竹橋，約30–40分鐘。</div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E4%BA%94%E4%BB%A3%E7%9B%AE+%E8%8A%B1%E5%B1%B1%E3%81%86%E3%81%A9%E3%82%93+%E9%8A%80%E5%BA%A7%E5%BA%97&amp;destination=%E7%9A%87%E5%B1%85+%E5%B9%B3%E5%B7%9D%E9%96%80&amp;travelmode=driving" target="_blank">Google Maps</a><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E4%BA%94%E4%BB%A3%E7%9B%AE+%E8%8A%B1%E5%B1%B1%E3%81%86%E3%81%A9%E3%82%93+%E9%8A%80%E5%BA%A7%E5%BA%97&amp;destination=%E7%9A%87%E5%B1%85+%E5%B9%B3%E5%B7%9D%E9%96%80&amp;travelmode=driving" target="_blank">平川門導航</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">12:40–13:45</div><span class="place-tag">景點</span><h3>皇居東御苑</h3>
+<p class="desc">江戶城本丸、石垣、二之丸庭園與諏訪之茶屋都在園內。2026/12/4 配合乾通り一般公開特別開園；大手門當天為出口專用，建議從平川門入園，再由大手門往東京站方向離開。</p>
+<div class="meta"><span class="chip red">正確地址：東京都千代田区千代田1</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Imperial+Palace+East+Gardens%2C+1+Chiyoda%2C+Chiyoda+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://www.kunaicho.go.jp/visit/higashigyoen/index.html" target="_blank">宮內廳官方</a><a class="btn" href="https://www.bubu-jp.com/archives/44936" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">15:15–15:25</div><h3>皇居東御苑 → 東京站一番街</h3>
+<p class="desc">僅快速購買伴手禮；若皇居延誤，改為晚間機動採買。</p>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Imperial+Palace+East+Gardens&amp;destination=First+Avenue+Tokyo+Station&amp;travelmode=walking" target="_blank">Google Maps</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">14:05–14:35</div><span class="place-tag">購物</span><h3>東京站一番街</h3>
+<p class="desc">東京 Character Street、Tokyo Okashi Land 與伴手禮集中在八重洲側地下。這天只安排精華 30 分鐘，不在此久逛。</p>
+<div class="meta"><span class="chip">東京都千代田区丸の内1-9-1</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=First+Avenue+Tokyo+Station%2C+1-9-1+Marunouchi%2C+Chiyoda+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://bobbytravel.tw/tokyo-station/" target="_blank">參考攻略</a></div>
+</div></div>
+
+<div class="stop"><div class="card">
+<div class="time">15:25–15:55</div><h3>東京站／丸之內 → 芝公園 Christmas Market</h3>
+<div class="route">建議Taxi直達都立芝公園4號地；或大手町搭三田線至御成門A6出口，含步行抓25–35分鐘。若前段延誤直接由皇居前往。</div>
+<div class="meta"><span class="chip red">正式會場：東京都港区芝公園3-2（都立芝公園4号地）</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Christmas+Market+2026+Shiba+Park%2C+3-2+Shibakoen%2C+Minato+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://tokyochristmas.net/shiba/" target="_blank">2026 官方</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">16:00–17:30</div><span class="place-tag">已購票</span><h3>東京 Christmas Market 2026・芝公園</h3>
+<p class="desc">12/4 是芝公園會場開幕日，當天官方營業 16:00–22:00。約 14 公尺高 Christmas Pyramid 與東京鐵塔同框，是這個會場最大特色。</p>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Christmas+Market+2026+Shiba+Park%2C+3-2+Shibakoen%2C+Minato+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://tokyochristmas.net/shiba/" target="_blank">2026 主辦方活動資訊</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">17:30–18:05</div><h3>芝公園 → teamLab 濱離宮</h3>
+<p class="desc">18:30 指定入場，建議 18:05 前抵達入口。</p>
+<div class="route"><b>大眾運輸：</b>御成門站 → 都營三田線至內幸町，再步行；或大門／汐留方向轉乘，約 25–35 分鐘。<br/><b>建議：</b>兩人 Taxi 約 10–15 分鐘最穩。</div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Tokyo+Christmas+Market+Shiba+Park&amp;destination=Hamarikyu+Gardens&amp;travelmode=driving" target="_blank">Google Maps</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">18:30–20:00</div><span class="place-tag">已購票</span><h3>teamLab 濱離宮｜ARTE TOKYO 夜間特別企畫</h3>
+<p class="desc">2026/11/25–12/24 限定夜間藝術展，把特別名勝濱離宮變成自然、光影與數位藝術共存的作品空間。官方 18:00–21:15、最晚入場 20:30，18:30 入場票時間正確。</p>
+<div class="meta"><span class="chip">東京都中央区浜離宮庭園1-1</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Hamarikyu+Gardens%2C+1-1+Hamarikyuteien%2C+Chuo+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://www.teamlab.art/jp/e/hamarikyu/" target="_blank">teamLab 官方</a><a class="btn" href="https://matcha-jp.com/tw/27828" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">20:00–20:20</div><h3>濱離宮 → 名代 宇奈とと 新橋店</h3>
+<div class="route"><b>建議：</b>大手門口步行往新橋約 12–18 分鐘。週五新橋店營業至 23:00。</div>
+<div class="meta"><span class="chip">東京都港区新橋3-16-19</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Hamarikyu+Gardens&amp;destination=Unatoto+Shimbashi&amp;travelmode=walking" target="_blank">Google Maps</a><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Unatoto+Shimbashi%2C+3-16-19+Shimbashi%2C+Minato+City%2C+Tokyo" target="_blank">餐廳定位</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">20:20–20:55</div><span class="place-tag">美食</span><h3>晚餐｜名代 宇奈とと 新橋店</h3>
+<p class="desc">平價炭火鰻魚丼及鰻重，適合晚間快速用餐。</p>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Unatoto+Shimbashi%2C+3-16-19+Shimbashi%2C+Minato+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://www.unatoto.com/shop/shinbashi/" target="_blank">官方</a><a class="btn" href="https://bobbytravel.tw/unatoto/" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">21:00–21:25</div><span class="place-tag">機動</span><h3>日比谷 Step 廣場・HIBIYA Magic Time Illumination</h3>
+<p class="desc">2026 點燈 16:00–23:00。大型階梯與心形光樹適合順路拍照；若疲累可直接跳過。</p>
+<div class="meta"><span class="chip">東京都千代田区有楽町1-1-2</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Midtown+Hibiya%2C+1-1-2+Yurakucho%2C+Chiyoda+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://www.hibiya.tokyo-midtown.com/xmas/en/" target="_blank">2026 官方</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">21:25–21:55</div><span class="place-tag">機動</span><h3>丸之內 Illumination／丸之內大廈</h3>
+<p class="desc">晚間機動選項，日比谷與丸之內擇一，疲累直接回飯店。</p>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Tokyo+Midtown+Hibiya&amp;destination=Marunouchi+Building&amp;travelmode=walking" target="_blank">Google Maps</a><a class="btn" href="https://www.marunouchi.com/en/lp/brightholiday2026/" target="_blank">2026 官方</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">21:55–23:05</div><h3>東京站／丸之內 → 東京灣喜來登</h3>
+<div class="route">丸之內或東京站步行至京葉線月台→JR京葉線／武藏野線舞濱→飯店接駁或Resort Gateway單軌至Bayside。若從日比谷直接返回，可搭日比谷線至八丁堀轉京葉線。預抓55–75分鐘；接駁或單軌錯過時搭Taxi。</div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Marunouchi+Building&amp;destination=Sheraton+Grande+Tokyo+Bay+Hotel&amp;travelmode=transit" target="_blank">回飯店 Google Maps</a><a class="btn" href="https://www.tokyodisneyresort.jp/en/tdr/resortline/station.html" target="_blank">單軌官方時刻</a></div>
+<div class="note">Resort Gateway Station 官方末班23:30；飯店接駁末班未確認，若錯過接駁或單軌，舞濱南口搭計程車回飯店。</div></div></div>
+</div><section class="dayresources"><h3>當日景點與美食攻略</h3><div class="resourcegrid"><a class="resource" href="https://gototravel.tw/rikugien-gardens/" rel="noopener" target="_blank">六義園｜白天紅葉｜參考攻略</a><a class="resource" href="https://bobbytravel.tw/godaime-hanayama-udon/" rel="noopener" target="_blank">五代目 花山烏冬 銀座店｜參考攻略</a><a class="resource" href="https://www.hanayamaudon.co.jp/ginza/" rel="noopener" target="_blank">五代目 花山烏冬 銀座店｜官方</a><a class="resource" href="https://www.ntv.co.jp/oo-dokei/" rel="noopener" target="_blank">銀座 → 日テレ大時鐘｜官方場次</a><a class="resource" href="https://www.bring-you.info/zh-tw/shiodome" rel="noopener" target="_blank">銀座 → 日テレ大時鐘｜參考攻略</a><a class="resource" href="https://www.kunaicho.go.jp/visit/higashigyoen/index.html" rel="noopener" target="_blank">宮內廳官方</a><a class="resource" href="https://www.bubu-jp.com/archives/44936" rel="noopener" target="_blank">皇居東御苑｜參考攻略</a><a class="resource" href="https://bobbytravel.tw/tokyo-station/" rel="noopener" target="_blank">東京站一番街｜參考攻略</a><a class="resource" href="https://www.marunouchi.com/en/lp/brightholiday2026/" rel="noopener" target="_blank">2026 官方活動</a><a class="resource" href="https://tokyo.letsgojp.com/archives/350545/" rel="noopener" target="_blank">丸之內大廈／丸之內區｜參考攻略</a><a class="resource" href="https://tokyochristmas.net/shiba/" rel="noopener" target="_blank">東京站／丸之內 → 芝公園 Christmas Market｜2026 官方</a><a class="resource" href="https://tokyochristmas.net/shiba/" rel="noopener" target="_blank">2026 主辦方活動資訊</a><a class="resource" href="https://www.teamlab.art/jp/e/hamarikyu/" rel="noopener" target="_blank">teamLab 官方</a><a class="resource" href="https://matcha-jp.com/tw/27828" rel="noopener" target="_blank">teamLab 濱離宮｜ARTE TOKYO 夜間特別企畫｜參考攻略</a><a class="resource" href="https://www.unatoto.com/shop/shinbashi/" rel="noopener" target="_blank">晚餐｜名代 宇奈とと 新橋店｜官方</a><a class="resource" href="https://bobbytravel.tw/unatoto/" rel="noopener" target="_blank">晚餐｜名代 宇奈とと 新橋店｜參考攻略</a><a class="resource" href="https://www.hibiya.tokyo-midtown.com/xmas/en/" rel="noopener" target="_blank">日比谷 Step 廣場・HIBIYA Magic Time Illumination｜2026 官方</a><a class="resource" href="https://bobbytravel.tw/ginza/" rel="noopener" target="_blank">銀座購物攻略</a><a class="resource" href="https://tokyo.letsgojp.com/archives/45148/" rel="noopener" target="_blank">日比谷點燈攻略</a></div></section></section><section class="panel" id="d3">
+<div class="dayhead"><div><div class="theme">12/5（六）｜產品說明會・銀杏・原宿・品川・台場煙火</div>
+<h2>飯店說明會 → 代代木銀杏 → 原宿 → Aqua Park → 台場煙火</h2></div>
+<span class="score">10:15 說明會・19:00 台場煙火</span></div><div class="dailyroute"><h3>當日路線總覽</h3><div class="routechain"><a href="https://www.google.com/maps/search/?api=1&amp;query=Sheraton+Grande+Tokyo+Bay+Hotel%2C+1-9+Maihama%2C+Urayasu%2C+Chiba" rel="noopener" target="_blank">飯店產品說明會</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Yoyogi+Park%2C+2-1+Yoyogikamizonocho%2C+Shibuya+City%2C+Tokyo" rel="noopener" target="_blank">代代木公園</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Omotesando%2C+Jingumae%2C+Shibuya+City%2C+Tokyo" rel="noopener" target="_blank">原宿・表參道</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Red+Rock+Harajuku%2C+3-25-12+Jingumae%2C+Shibuya+City%2C+Tokyo" rel="noopener" target="_blank">Red Rock 原宿｜主案</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Maxell+Aqua+Park+Shinagawa%2C+4-10-30+Takanawa%2C+Minato+City%2C+Tokyo" rel="noopener" target="_blank">Maxell Aqua Park Shinagawa</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Odaiba+Marine+Park%2C+1-4+Daiba%2C+Minato+City%2C+Tokyo" rel="noopener" target="_blank">台場海濱公園・Odaiba Rainbow Fireworks</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Gonpachi+Odaiba%2C+1-7-1+Daiba%2C+Minato+City%2C+Tokyo" rel="noopener" target="_blank">權八 Odaiba｜居酒屋</a></div></div>
+<div class="card"><div class="time">🌤 近期預報參考</div><p class="desc">目前預報約 17–18°C、晚間約 11–14°C，雲量偏多。台場海邊風感仍會比市區低，建議防風外套。</p></div>
+<div class="timeline">
+<div class="stop"><div class="card">
+<div class="time">07:30–09:30</div><h3>飯店早餐・休息</h3><p class="desc">早餐後留在飯店，準備 10:15 的產品說明會。</p></div></div>
+<div class="stop"><div class="card">
+<div class="time">10:15–11:45</div><span class="place-tag">固定</span><h3>飯店產品說明會</h3>
+<p class="desc">90 分鐘產品介紹／銷售說明會，地點在東京灣喜來登。</p>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Sheraton+Grande+Tokyo+Bay+Hotel%2C+1-9+Maihama%2C+Urayasu%2C+Chiba" target="_blank">飯店 Google Maps</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">11:50–13:00</div><h3>喜來登 → 代代木公園／原宿</h3>
+<div class="route"><b>A.</b> 飯店接駁／Resort Line 到舞濱。<br/><b>B.</b> JR 京葉線「舞濱 → 東京」。<br/><b>C.</b> 東京站轉 JR 山手線到原宿。<br/><b>預抓：</b>約 65–75 分鐘。</div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Sheraton+Grande+Tokyo+Bay+Hotel&amp;destination=Yoyogi+Park&amp;travelmode=transit" target="_blank">Google Maps</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">13:00–13:30</div><span class="place-tag">銀杏</span><h3>代代木公園</h3>
+<p class="desc">東京市中心大型綠地，秋季銀杏是代表景色之一。12/5 已接近尾聲，可能是滿樹黃葉，也可能轉為金黃落葉地毯；停留 30 分鐘即可。</p>
+<div class="meta"><span class="chip">東京都渋谷区代々木神園町2-1</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Yoyogi+Park%2C+2-1+Yoyogikamizonocho%2C+Shibuya+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://gototravel.tw/yoyogi-park-ginkgo-tree/" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">13:30–13:45</div><span class="place-tag">購物</span><h3>原宿・表參道</h3>
+<p class="desc">以服飾與潮流採買為主，集中走神宮前／表參道。</p>
+<div class="meta"><span class="chip">定位以原宿站／表參道一帶為準</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Omotesando%2C+Jingumae%2C+Shibuya+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://bobbytravel.tw/harajuku/" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">13:45–14:25</div><span class="place-tag">午餐二選一</span><h3>Red Rock 原宿｜主案</h3>
+<p class="desc">牛肉丼主案；候位超過15分鐘即改附近快速餐食。利久為事先選擇的替代方案，不在排隊後再跨區。</p>
+<div class="meta"><span class="chip">東京都渋谷区神宮前3-25-12 フジビルB1F</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Red+Rock+Harajuku%2C+3-25-12+Jingumae%2C+Shibuya+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://bobbytravel.tw/red-rock/" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">備選</div><span class="place-tag">午餐二選一</span><h3>利久牛舌・渋谷 Hikarie 店</h3>
+<p class="desc">若 Red Rock 排隊太久，可搭 JR 一站到澀谷改吃利久。仙台厚切牛舌定食穩定、全天營業；但會多一次轉乘，需壓縮原宿購物時間。</p>
+<div class="meta"><span class="chip">東京都渋谷区渋谷2-21-1 渋谷ヒカリエ6F</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Rikyu+Shibuya+Hikarie%2C+2-21-1+Shibuya%2C+Shibuya+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://bobbytravel.tw/rikyu-gyutan/" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">15:00–17:00</div><h3>原宿 → Maxell Aqua Park Shinagawa</h3>
+<div class="route"><b>大眾運輸：</b>JR 山手線「原宿 → 品川」直達，約 20 分鐘；品川站高輪口步行約 2–5 分鐘。含等車抓 30–35 分鐘。</div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Harajuku+Station&amp;destination=Maxell+Aqua+Park+Shinagawa&amp;travelmode=transit" target="_blank">Google Maps</a><a class="btn" href="https://www.aqua-park.jp/aqua/event/dophinperformance_day.html" target="_blank">日間海豚秀</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">15:30–17:45</div><span class="place-tag">尚未購票</span><h3>Maxell Aqua Park Shinagawa</h3>
+<p class="desc">位於品川王子大飯店內，以聲光水母展區、Wonder Tube 與 360° 海豚劇場最有特色。官方營業 10:00–20:00、19:00 最後入場。一般參觀含海豚秀約 2 小時；Christmas 夜間秀「Starry Christmas Party」期間為 11/12–12/25。</p>
+<div class="note"><b>入場建議：</b>不必硬綁 15:00，15:30 左右到館更符合前段行程。夜間海豚秀近期排程為 17:30／19:00，但 12/5 最終時刻仍以官方活動頁為準。</div>
+<div class="meta"><span class="chip">〒108-8611 東京都港区高輪4-10-30 品川プリンスホテル内</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Maxell+Aqua+Park+Shinagawa%2C+4-10-30+Takanawa%2C+Minato+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://www.aqua-park.jp/en/aqua/" target="_blank">官方</a><a class="btn" href="https://bobbytravel.tw/maxell-aqua-park/" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">17:00–18:00</div><h3>品川 → 台場海濱公園</h3>
+<div class="route">品川JR山手線至大崎→臨海線東京Teleport→步行至海濱公園。預抓45–60分鐘；18:15仍未到台場時，直接前往觀賞區。</div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Maxell+Aqua+Park+Shinagawa&amp;destination=Odaiba+Marine+Park&amp;travelmode=transit" target="_blank">Google Maps</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">18:00–19:05</div><span class="place-tag">煙火</span><h3>台場海濱公園・Odaiba Rainbow Fireworks</h3>
+<p class="desc">先在海濱散步、看 Rainbow Bridge 與自由女神像，19:00 起看約 5 分鐘冬季煙火。12/5 為 2026 首場，荒天取消。</p>
+<div class="meta"><span class="chip">東京都港区台場1丁目4</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Odaiba+Marine+Park%2C+1-4+Daiba%2C+Minato+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://www.tokyo-odaiba.net/rainbow2026/" target="_blank">煙火官方</a><a class="btn" href="https://bobbytravel.tw/odaiba-marine-park/" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">19:10–20:30</div><span class="place-tag">晚餐二選一</span><h3>權八 Odaiba｜居酒屋</h3>
+<p class="desc">Aqua City 4F，主打手打蕎麥、炭火串燒與居酒屋料理，窗邊可看東京灣夜景。煙火結束後步行即可到。</p>
+<div class="meta"><span class="chip">東京都港区台場1-7-1 アクアシティお台場4F</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Gonpachi+Odaiba%2C+1-7-1+Daiba%2C+Minato+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://gonpachi.jp/" target="_blank">官方</a><a class="btn" href="https://www.kkday.com/zh-hk/blog/98007/odaiba-restaurants" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">晚餐備選</div><span class="place-tag">晚餐二選一</span><h3>東京拉麵國技館 舞</h3>
+<p class="desc">Aqua City 5F 集結多家地方名店，2026 年 3 月重新改裝。適合想快速吃完、不想久坐居酒屋的晚上。</p>
+<div class="meta"><span class="chip">東京都港区台場1-7-1 アクアシティお台場5F</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Ramen+Kokugikan+Mai%2C+Aqua+City+Odaiba+5F%2C+1-7-1+Daiba%2C+Minato+City%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://tokyo.letsgojp.com/archives/699470/" target="_blank">參考攻略</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">20:30–21:30</div><h3>台場 → 東京灣喜來登</h3>
+<div class="route"><b>A.</b> 從 Aqua City／海濱公園步行到東京 Teleport 站。<br/>
+<b>B.</b> 搭臨海線「東京 Teleport → 新木場」。<br/>
+<b>C.</b> 新木場轉 JR 京葉線／武藏野線，往蘇我／海濱幕張方向，1 站到舞濱。<br/>
+<b>D.</b> 舞濱站南口搭飯店接駁；若需等候，改搭 Disney Resort Line 到 Bayside Station。<br/>
+<b>預抓：</b>約 50–60 分鐘。</div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Aqua+City+Odaiba&amp;destination=Sheraton+Grande+Tokyo+Bay+Hotel&amp;travelmode=transit" target="_blank">回飯店 Google Maps</a><a class="btn" href="https://www.tokyodisneyresort.jp/en/tdr/resortline/station.html" target="_blank">單軌官方時刻</a></div>
+<div class="note">Resort Gateway Station 官方末班23:30；飯店接駁末班未確認，若錯過接駁或單軌，舞濱南口搭計程車回飯店。</div></div></div>
+<div class="stop"><div class="card">
+<div class="time">機動備案</div><span class="place-tag">不排主線</span><h3>白鬍子泡芙工房・吉祥寺店</h3>
+<p class="desc">招牌是龍貓造型泡芙，吉祥寺店 11:00–17:00。因 10:15 飯店說明會、品川水族館與 19:00 台場煙火都固定，吉祥寺會造成約 60–90 分鐘西向繞路，不建議放入主線；若大幅刪減原宿／Aqua Park 才考慮。</p>
+<div class="meta"><span class="chip">東京都武蔵野市吉祥寺南町2-7-5</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Shirohige+Cream+Puff+Factory+Kichijoji%2C+2-7-5+Kichijoji+Minamicho%2C+Musashino%2C+Tokyo" target="_blank">Google Maps</a><a class="btn" href="https://www.bring-you.info/zh-tw/shiro-higes-cream-puff-factory" target="_blank">參考攻略</a></div>
+</div></div>
+</div><section class="dayresources"><h3>當日景點與美食攻略</h3><div class="resourcegrid"><a class="resource" href="https://gototravel.tw/yoyogi-park-ginkgo-tree/" rel="noopener" target="_blank">代代木公園｜參考攻略</a><a class="resource" href="https://bobbytravel.tw/harajuku/" rel="noopener" target="_blank">原宿・表參道｜參考攻略</a><a class="resource" href="https://bobbytravel.tw/red-rock/" rel="noopener" target="_blank">Red Rock 原宿｜主案｜參考攻略</a><a class="resource" href="https://bobbytravel.tw/rikyu-gyutan/" rel="noopener" target="_blank">利久牛舌・渋谷 Hikarie 店｜參考攻略</a><a class="resource" href="https://www.aqua-park.jp/en/aqua/" rel="noopener" target="_blank">Maxell Aqua Park Shinagawa｜官方</a><a class="resource" href="https://bobbytravel.tw/maxell-aqua-park/" rel="noopener" target="_blank">Maxell Aqua Park Shinagawa｜參考攻略</a><a class="resource" href="https://www.tokyo-odaiba.net/rainbow2026/" rel="noopener" target="_blank">煙火官方</a><a class="resource" href="https://bobbytravel.tw/odaiba-marine-park/" rel="noopener" target="_blank">台場海濱公園・Odaiba Rainbow Fireworks｜參考攻略</a><a class="resource" href="https://gonpachi.jp/" rel="noopener" target="_blank">權八 Odaiba｜居酒屋｜官方</a><a class="resource" href="https://www.kkday.com/zh-hk/blog/98007/odaiba-restaurants" rel="noopener" target="_blank">權八 Odaiba｜居酒屋｜參考攻略</a><a class="resource" href="https://tokyo.letsgojp.com/archives/699470/" rel="noopener" target="_blank">東京拉麵國技館 舞｜參考攻略</a><a class="resource" href="https://www.bring-you.info/zh-tw/shiro-higes-cream-puff-factory" rel="noopener" target="_blank">白鬍子泡芙工房・吉祥寺店｜參考攻略</a><a class="resource" href="https://bobbytravel.tw/odaiba/" rel="noopener" target="_blank">台場旅遊攻略</a></div></section></section><section class="panel" id="d4">
+<div class="dayhead"><div><div class="theme">12/6（日）｜東京迪士尼海洋・返程</div>
+<h2>喜來登 → DisneySea → 成田機場 T1</h2></div><span class="score">DisneySea 尚未買票｜MM627 22:05</span></div><div class="dailyroute"><h3>當日路線總覽</h3><div class="routechain"><a href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+DisneySea%2C+1-13+Maihama%2C+Urayasu%2C+Chiba" rel="noopener" target="_blank">Tokyo DisneySea</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+DisneySea+Bus+Terminal+North%2C+Urayasu%2C+Chiba" rel="noopener" target="_blank">離園・前往 DisneySea Bus Stop 4</a> → <a href="https://www.google.com/maps/search/?api=1&amp;query=Narita+Airport+Terminal+1" rel="noopener" target="_blank">成田 T1｜取行李・退稅／海關・Peach 報到</a></div></div>
+<div class="card"><div class="time">🌤 近期預報參考</div><p class="desc">目前 12/6 預報分歧較大，約 14–15°C，部分模型有降雨訊號。DisneySea 是全日戶外活動，建議出發前 48 小時確認降雨，準備輕便雨衣與防水鞋。</p></div>
+<div class="banner">行李配送與17:05機場巴士需先確認預約；16:00開始離園。若未能安排配送，須提早離園返回飯店領行李，再乘已確認的巴士或鐵路前往成田。</div>
+<div class="timeline">
+<div class="stop"><div class="card">
+<div class="time">07:00–08:20</div><h3>飯店早餐・退房・交大行李</h3>
+<p class="desc">早餐後退房。若採 LuggAgent，依預約規則把大行李交給飯店前台，隨身只留護照、錢包、外套、藥品與退稅需要查驗的商品。</p>
+<div class="actions"><a class="btn" href="https://www.klook.com/zh-TW/activity/5624-airport-luggage-services-tokyo/" target="_blank">LuggAgent / Klook</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">08:20–08:45</div><h3>東京灣喜來登 → Tokyo DisneySea</h3>
+<div class="route"><b>A.</b> 飯店步行約 1–2 分鐘或搭飯店接駁到 Bayside Station。<br/>
+<b>B.</b> 搭 Disney Resort Line，往 Tokyo DisneySea Station。<br/>
+<b>C.</b> 下車後依指標步行到入園口。<br/>
+<b>預抓：</b>約 15–25 分鐘。</div>
+<div class="meta"><span class="chip">〒279-8511 千葉県浦安市舞浜1-13</span></div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Sheraton+Grande+Tokyo+Bay+Hotel&amp;destination=Tokyo+DisneySea&amp;travelmode=transit" target="_blank">Google Maps</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">09:00–16:00</div><span class="place-tag">尚未買票</span><h3>Tokyo DisneySea</h3>
+<p class="desc">官方12/6營業09:00–21:00；門票尚未購買。建議提前購票，16:00開始離園，無法欣賞19:30及20:30夜間演出。</p>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+DisneySea%2C+1-13+Maihama%2C+Urayasu%2C+Chiba" target="_blank">Google Maps</a><a class="btn primary" href="https://www.tokyodisneyresort.jp/en/tds/daily/calendar/20261206/" target="_blank">12/6 官方行事曆</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">16:00–16:40</div><h3>離園・前往 DisneySea Bus Stop 4</h3>
+<p class="desc">16:00開始離園，前往4號巴士站，最晚16:40抵達並確認乘車位置。17:05班須先確認／預約。</p>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+DisneySea+Bus+Terminal+North%2C+Urayasu%2C+Chiba" target="_blank">Google Maps</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">17:05–約18:15</div><span class="place-tag">最推薦</span><h3>Tokyo DisneySea → 成田機場 T1｜直達機場巴士</h3>
+<p class="desc">現行時刻有 17:05、17:45、18:25 等班次。為 MM627 22:05 留足行李、退稅、報到與安檢時間，最推薦 <b>17:05</b>；目前時刻資料約 70 分鐘抵達 T1。</p>
+<div class="route"><b>優點：</b>不用先回飯店、不必拖行李轉 JR。<br/><b>17:45 班：</b>可作備援，約 18:55 抵達 T1；仍可行，但機場緩衝減少 40 分鐘。</div>
+<div class="actions"><a class="btn" href="https://www.keiseibus.co.jp/express-bus/90102-2/" target="_blank">機場巴士官方時刻</a><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Tokyo+DisneySea&amp;destination=Narita+Airport+Terminal+1&amp;travelmode=transit" target="_blank">Google Maps</a></div>
+</div></div>
+<div class="stop"><div class="card">
+<div class="time">約18:15–21:15</div><h3>成田 T1｜取行李・退稅／海關・Peach 報到</h3>
+<p class="desc">先領配送行李，於託運前完成免稅商品海關持出確認，再辦理Peach報到及託運。21:15為硬截止，目標20:30前完成。完成後直接安檢出境，21:35前到登機門。</p>
+<div class="note"><b>貴賓室：</b>若 17:05 巴士準時抵達，而且必要流程非常順利，可再臨場評估 I.A.S.S Lounge 1；它位於安檢前、21:00 關門。若任何環節排隊，直接放棄 Lounge。</div>
+<div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Narita+Airport+Terminal+1" target="_blank">Google Maps</a><a class="btn" href="https://www.flypeach.com/tw/lm/ai/airports/airportguide_international/nrt" target="_blank">Peach 成田指南</a></div>
+</div></div>
+</div><section class="dayresources"><h3>當日景點與美食攻略</h3><div class="resourcegrid"><a class="resource" href="https://www.klook.com/zh-TW/activity/5624-airport-luggage-services-tokyo/" rel="noopener" target="_blank">LuggAgent / Klook</a><a class="resource" href="https://www.tokyodisneyresort.jp/en/tds/daily/calendar/20261206/" rel="noopener" target="_blank">12/6 官方行事曆</a><a class="resource" href="https://www.keiseibus.co.jp/express-bus/90102-2/" rel="noopener" target="_blank">成田機場巴士時刻</a><a class="resource" href="https://www.flypeach.com/tw/lm/ai/airports/airportguide_international/nrt" rel="noopener" target="_blank">Peach 成田指南</a><a class="resource" href="https://www.tokyodisneyresort.jp/en/tds/" rel="noopener" target="_blank">東京迪士尼海洋官方</a></div></section></section><section class="panel" id="prep">
+<div class="dayhead"><div><div class="theme">PRE-TRIP</div><h2>行前提醒・固定票券・地址核對・交通</h2></div><span class="score">最後更新：2026/11/27</span></div>
+<section class="section"><h3>固定票券／預約</h3>
+<div class="card"><div class="tablewrap"><table>
+<thead><tr><th>日期</th><th>項目</th><th>狀態</th></tr></thead>
+<tbody>
+<tr><td data-label="日期">12/3</td><td data-label="項目">成田 T1 08:00 → 東京灣喜來登 機場巴士</td><td data-label="狀態">✅ 已購票</td></tr>
+<tr><td data-label="日期">12/3</td><td data-label="項目">東京 Christmas Market 新豐洲 15:00</td><td data-label="狀態">已購票・復業待確認</td></tr>
+<tr><td data-label="日期">12/3</td><td data-label="項目">炭治郎 六本木店 19:30</td><td data-label="狀態">✅ 已訂位</td></tr>
+<tr><td data-label="日期">12/4</td><td data-label="項目">東京 Christmas Market 芝公園 16:00</td><td data-label="狀態">✅ 已購票</td></tr>
+<tr><td data-label="日期">12/4</td><td data-label="項目">teamLab 濱離宮 18:30</td><td data-label="狀態">✅ 已購票</td></tr>
+<tr><td data-label="日期">12/5</td><td data-label="項目">飯店產品說明會 10:15–11:45</td><td data-label="狀態">✅ 固定</td></tr>
+<tr><td data-label="日期">12/6</td><td data-label="項目">Tokyo DisneySea</td><td data-label="狀態">⚠️ 尚未購票</td></tr>
+</tbody></table></div></div>
+</section>
+<section class="section"><h3>景點與餐廳地址</h3>
+<div class="card"><div class="tablewrap"><table>
+<thead><tr><th>地點</th><th>地址</th></tr></thead>
+<tbody>
+<tr><td data-label="地點">東京灣喜來登</td><td data-label="地址">千葉県浦安市舞浜1-9</td></tr>
+<tr><td data-label="地點">大和壽司</td><td data-label="地址">東京都江東区豊洲6-3-1 豊洲市場5街区青果棟1F</td></tr>
+<tr><td data-label="地點">豐洲千客萬來／萬葉俱樂部</td><td data-label="地址">東京都江東区豊洲6-5-1</td></tr>
+<tr><td data-label="地點">新豐洲 Christmas Market</td><td data-label="地址">東京都江東区豊洲6丁目4</td></tr>
+<tr><td data-label="地點">六本木 Hills</td><td data-label="地址">東京都港区六本木6-10-1</td></tr>
+<tr><td data-label="地點">炭治郎 六本木店</td><td data-label="地址">東京都港区六本木7-14-11 No.12ニイクラビル4F</td></tr>
+<tr><td data-label="地點">東京 Midtown</td><td data-label="地址">東京都港区赤坂9-7-1</td></tr>
+<tr><td data-label="地點">六義園</td><td data-label="地址">東京都文京区本駒込6-16-3</td></tr>
+<tr><td data-label="地點">皇居東御苑</td><td data-label="地址">東京都千代田区千代田1</td></tr>
+<tr><td data-label="地點">五代目花山烏冬</td><td data-label="地址">東京都中央区銀座3-14-13</td></tr>
+<tr><td data-label="地點">日テレ大時鐘</td><td data-label="地址">東京都港区東新橋1-6-1 日本テレビタワー</td></tr>
+<tr><td data-label="地點">東京站一番街</td><td data-label="地址">東京都千代田区丸の内1-9-1</td></tr>
+<tr><td data-label="地點">丸之內大廈</td><td data-label="地址">東京都千代田区丸の内2-4-1</td></tr>
+<tr><td data-label="地點">日比谷 Step 廣場</td><td data-label="地址">東京都千代田区有楽町1-1-2 東京 Midtown 日比谷</td></tr>
+<tr><td data-label="地點">芝公園 Christmas Market</td><td data-label="地址">東京都港区芝公園3-2（都立芝公園4号地）</td></tr>
+<tr><td data-label="地點">teamLab 濱離宮</td><td data-label="地址">東京都中央区浜離宮庭園1-1</td></tr>
+<tr><td data-label="地點">宇奈とと新橋店</td><td data-label="地址">東京都港区新橋3-16-19</td></tr>
+<tr><td data-label="地點">代代木公園</td><td data-label="地址">東京都渋谷区代々木神園町2-1</td></tr>
+<tr><td data-label="地點">白鬍子泡芙工房 吉祥寺店</td><td data-label="地址">東京都武蔵野市吉祥寺南町2-7-5</td></tr>
+<tr><td data-label="地點">原宿／表參道</td><td data-label="地址">神宮前・表參道一帶</td></tr>
+<tr><td data-label="地點">Red Rock 原宿</td><td data-label="地址">東京都渋谷区神宮前3-25-12 フジビルB1F</td></tr>
+<tr><td data-label="地點">利久牛舌 Hikarie</td><td data-label="地址">東京都渋谷区渋谷2-21-1 渋谷ヒカリエ6F</td></tr>
+<tr><td data-label="地點">Maxell Aqua Park Shinagawa</td><td data-label="地址">東京都港区高輪4-10-30 品川プリンスホテル内</td></tr>
+<tr><td data-label="地點">台場海濱公園</td><td data-label="地址">東京都港区台場1丁目4 一帶</td></tr>
+<tr><td data-label="地點">權八 Odaiba</td><td data-label="地址">東京都港区台場1-7-1 アクアシティお台場4F</td></tr>
+<tr><td data-label="地點">東京拉麵國技館 舞</td><td data-label="地址">東京都港区台場1-7-1 アクアシティお台場5F</td></tr>
+<tr><td data-label="地點">Tokyo DisneySea</td><td data-label="地址">千葉県浦安市舞浜1-13</td></tr>
+</tbody></table></div></div>
+</section>
+<section class="section"><h3>Day 4 行李與機場策略</h3>
+<div class="card"><p class="desc"><b>最順方案：</b>早上退房後將大行李從喜來登配送至成田，DisneySea 玩到約 16:00，17:05 從 DisneySea Bus Stop 4 搭直達成田巴士，約 18:15 到 T1。若不做行李配送，必須更早離開 DisneySea 回飯店取行李；飯店出發班次須依官網確認，會大幅縮短樂園時間。</p>
+<div class="actions"><a class="btn" href="https://www.keiseibus.co.jp/express-bus/90102-2/" target="_blank">Disney Resort ↔ 成田巴士</a><a class="btn" href="https://www.klook.com/zh-TW/activity/5624-airport-luggage-services-tokyo/" target="_blank">LuggAgent</a></div></div>
+</section>
+<section class="section"><h3>交通付款方式</h3>
+<div class="card"><p class="desc">市區使用 Suica／PASMO，可用於JR、地鐵、百合海鷗線、臨海線及Disney Resort Line。每人一張，進出站各刷一次；機場巴士與指定席列車另購票。</p></div>
+</section>
+<section class="section"><h3>日本退稅新制｜2026/11/1起</h3><div class="card"><p>購物先付含稅價，出境前在海關確認商品持出後由店家或退款服務商退款。購買後90天內離境，護照、商品及購買紀錄備妥；必須在託運行李前完成確認。不要拆散商品或寄離日本。</p><a class="btn" href="https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00028.html">觀光廳官方</a></div></section><section class="section"><h3>JCB機場貴賓室</h3><div class="card"><p>I.A.S.S Executive Lounge 1：成田T1中央大樓5F、安檢前，07:00–21:00。台灣發行JCB晶緻／白金以上適用日本指定貴賓室服務，出示本人實體卡及同名當日登機證；同行者資格另確認。非日本以外的LoungeKey服務。先完成退稅確認、報到與託運，時間充足才使用，不列固定行程。</p><a class="btn" href="https://www.tw.jcb/zh-tw/consumers/platinum/airport-lounge/index.html">JCB官方</a> <a class="btn" href="https://www.narita-airport.jp/en/service/lounge/credit/">成田貴賓室</a></div></section><section class="section"><h3>機場鐵路備援｜Skyliner</h3><div class="card"><p>巴士無法搭乘時，可由舞濱搭京葉線至東京，轉山手線至日暮里，轉京成Skyliner至成田T1。預抓約2小時以上，另計領行李與機場手續；Skyliner需另購指定席，不宜臨時拖到傍晚才改搭。若配送未訂妥，先返回飯店取行李。</p><a class="btn" href="https://www.keisei.co.jp/keisei/tetudou/skyliner/us/traffic/skyliner_1125.php">Skyliner官方</a> <a class="btn" href="https://www.jreast.co.jp/en/multi/welcomesuicamobile/">Welcome Suica官方</a></div></section><section class="section"><h3>出發前最後確認</h3>
+<div class="progress-label" id="progtext"></div><div class="progress-track"><div id="prog"></div></div><div class="card checklist" id="checks">
+<label><input data-k="d1bus" type="checkbox"/>12/3 08:00 成田→喜來登巴士電子票已存手機</label>
+<label><input data-k="toyoxmas" type="checkbox"/>12/3 15:00 新豐洲市集復業／退款公告及票券確認</label>
+<label><input data-k="tanjiro" type="checkbox"/>12/3 19:30 炭治郎 六本木店訂位資訊已截圖</label>
+<label><input data-k="shibaxmas" type="checkbox"/>12/4 16:00 芝公園 Christmas Market 票券已存手機</label>
+<label><input data-k="hamarikyu" type="checkbox"/>12/4 18:30 teamLab 濱離宮票券已存手機</label>
+<label><input data-k="meeting" type="checkbox"/>12/5 10:15–11:45 飯店產品說明會時間已確認</label>
+<label><input data-k="firework" type="checkbox"/>12/5 下午再次確認 Odaiba Rainbow Fireworks 是否因天候取消</label>
+<label><input data-k="aqua" type="checkbox"/>12/5 Aqua Park 最終海豚秀時刻已確認</label>
+<label><input data-k="disney" type="checkbox"/>12/6 DisneySea 1-Day Passport 已購買</label>
+<label><input data-k="lugg" type="checkbox"/>12/6 飯店→成田行李配送已完成預約</label>
+<label><input data-k="airportbus" type="checkbox"/>12/6 DisneySea→成田 17:05 機場巴士已確認／預約</label>
+</div>
+</section>
+</section>
+</main>
+<div class="footer">資料整理：2026/11/27。營業時間、紅葉狀況、票價、交通與預約規則可能臨時調整，出發前請再次確認官方資訊。</div>
+</div>
+<script>
+const tabs=[...document.querySelectorAll('.tab')];
+const panels=[...document.querySelectorAll('.panel')];
+tabs.forEach(t=>t.addEventListener('click',()=>{
+ tabs.forEach(x=>x.classList.remove('active')); panels.forEach(x=>x.classList.remove('active'));
+ t.classList.add('active'); document.getElementById(t.dataset.tab).classList.add('active');
+ window.scrollTo({top:document.querySelector('.tabs').offsetTop-8,behavior:'smooth'});
+ history.replaceState(null,'','#'+t.dataset.tab);
+}));
+const hash=location.hash.replace('#','');
+if(hash && document.getElementById(hash)){
+ const b=document.querySelector(`[data-tab="${hash}"]`); if(b)b.click();
+}
+const checks=[...document.querySelectorAll('#checks input')];
+checks.forEach(c=>{
+ try { c.checked=localStorage.getItem('tokyo26_v13_'+c.dataset.k)==='1'; } catch(e) {}
+ c.addEventListener('change',()=>{try {localStorage.setItem('tokyo26_v13_'+c.dataset.k,c.checked?'1':'0');} catch(e) {}updateProg();});
+});
+function updateProg(){
+ const done=checks.filter(c=>c.checked).length, total=checks.length;
+ document.getElementById('prog').style.width=(done/total*100)+'%';
+ document.getElementById('progtext').textContent=`行前完成度 ${done}/${total}（${Math.round(done/total*100)}%）`;
+}
+updateProg();
+</script>
+</body></html>
